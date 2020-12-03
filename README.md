@@ -1,1 +1,3 @@
 # SoloProject
+
+Stock Tracker Dashboard
