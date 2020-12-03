@@ -27,7 +27,7 @@ module.exports = {
     ],
   },
   devServer : {
-      publicPath : "dist",
+      publicPath : "/dist",
 
   }
 };
