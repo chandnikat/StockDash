@@ -4,9 +4,7 @@
   "description": "stock tracker",
   "main": "index.js",
   "dependencies": {
-    "browserify": "^17.0.0",
     "express": "^4.17.1",
-    "gulp": "^4.0.2",
     "node": "^15.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
