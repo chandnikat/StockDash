@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div id="app">
         <Dashboard/>
-        {/* <StocksDisplay/> */}
+        <StocksDisplay/>
       </div>
     );
   }

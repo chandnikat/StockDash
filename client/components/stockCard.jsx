@@ -5,7 +5,7 @@ class StockCard extends Component {
   render() {
     return (
       <div id="stockCard">
-       
+       <p>stockcard</p>
       </div>
     );
   }
