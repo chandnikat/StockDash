@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./client/index.js",
+  entry: "./client/app.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -28,6 +28,8 @@ module.exports = {
   },
   devServer : {
       publicPath : "/dist",
-
+      proxy: {
+        "/" : "http://localhost:3000/"
+      }
   }
 };
