@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
-function StockCard() {
+function StockCard({stock}) {
   return (
-    <div id="stockCard">
-      <p>stockcard</p>
-    </div>
+    <li className="minus">
+          {stock.ticker} <span>$133.00</span> <span>{stock.qty}</span> <span>+$400</span>{" "}
+          <span>{stock.entryPrice}</span> <button className="delete-btn">Delete</button>
+        </li>
   );
 }
 
