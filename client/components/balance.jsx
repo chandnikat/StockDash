@@ -6,13 +6,14 @@ function Balance() {
   const { stocks } = useContext(GlobalContext);
 
   const amount = stocks.map((stock) => stock.profitLoss);
-  const total = amount.reduce((acc, item) => (acc += item), 0).toFixed(2);
+  const total = amount.reduce((acc, item) => (acc += item), 0);
+  const sign = total < 0 ? "-" : "+";
 
   return (
     <div className="balance-container">
       <div className="total-container">
         <h4 id="balance-header">Total Profit/Loss</h4>
-        <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>${total}</h1>
+        <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>{sign}${Math.abs(total).toFixed(2)}</h1>
       </div>
       <div className="total-container" id="profit-container">
         <div className="inside-profit-container">
