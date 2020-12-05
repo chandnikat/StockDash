@@ -11,13 +11,13 @@ function Balance() {
       <div className="total-container">
         <div>
           <h4>Profit</h4>
-          <p id="profit" className="profit-loss">
+          <p id="profit" className="plus profit">
             +$0.00
           </p>
         </div>
         <div>
           <h4>Loss</h4>
-          <p id="loss" className="profit-loss">
+          <p id="loss" className="minus loss">
             -$0.00
           </p>
         </div>

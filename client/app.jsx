@@ -11,7 +11,7 @@ function App() {
   return (
     <div id="app">
       <Header />
-      <div classNamne="container">
+      <div className="container">
         <Dashboard />
         <Balance/>
         <StocksDisplay />
