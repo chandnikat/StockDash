@@ -6,17 +6,17 @@ function Balance() {
   const { stocks } = useContext(GlobalContext);
 
   //Total profit/Loss Calc:
-  const amount = stocks.map((stock) => stock.profitLoss);
-  const total = amount.reduce((acc, item) => (acc += item), 0);
+  const amounts = stocks.map((stock) => stock.profitLoss);
+  const total = amounts.reduce((acc, item) => (acc += item), 0);
   const sign = total < 0 ? "-" : "+";
 
   //Individual Profit/Loss Calc:
-  const profit = amount
+  const profit = amounts
     .filter((item) => item > 0)
     .reduce((acc, item) => (acc += item), 0)
     .toFixed(2);
   const loss = (
-    amount.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
+    amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
     -1
   ).toFixed(2);
 
