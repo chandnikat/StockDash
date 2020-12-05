@@ -1,8 +1,9 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useState, useContext } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
 
 
 function StockCard({ stock }) {
+  const [price, setPrice] = useState(0);
   const { deleteStock } = useContext(GlobalContext);
 
 //~ Will need to update 100 to stock.price once price available. 
@@ -23,12 +24,12 @@ function StockCard({ stock }) {
   .then(data =>{
     console.log("INSIDE " + symbol, data["Global Quote"]["05. price"])
     let lastPrice = data["Global Quote"]["05. price"]
-    return lastPrice
+    setPrice(lastPrice)
     
   })
   }
-let price = getData()
-  console.log("OUTSIDE " + symbol, price)
+
+  console.log("OUTSIDE " + symbol, stock.price)
   
 
   return (
