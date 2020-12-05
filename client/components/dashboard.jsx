@@ -10,7 +10,7 @@ function Dashboard() {
         id="entryPrice"
         placeholder="Entry Price"
       ></input>
-      <button id="stock-button">Submit</button>
+      <button id="stock-button">Add</button>
     </div>
   );
 }
