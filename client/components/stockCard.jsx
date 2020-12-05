@@ -1,6 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+import { GlobalContext } from "../context/gobalState.jsx";
 
 function StockCard({ stock }) {
+  const {deleteStock} = useContext(GlobalContext)
+
   const sign = stock.profitLoss < 0 ? "-" : "+";
   return (
     <>
@@ -12,7 +15,7 @@ function StockCard({ stock }) {
           {sign}${Math.abs(stock.profitLoss)}
         </span>{" "}
         <span>{stock.entryPrice}</span>{" "}
-        <button className="delete-btn">Delete</button>
+        <button onClick={() => deleteStock(stock.id)} className="delete-btn">Delete</button>
       </li>
     </>
   );
