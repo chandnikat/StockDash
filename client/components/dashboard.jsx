@@ -3,8 +3,8 @@ import { GlobalContext } from "../context/gobalState.jsx";
 
 function Dashboard() {
   const [ticker, setTicker] = useState("");
-  const [qty, setQty] = useState(0);
-  const [entryPrice, setEntryPrice] = useState(0);
+  const [qty, setQty] = useState();
+  const [entryPrice, setEntryPrice] = useState();
 
   const { addStock } = useContext(GlobalContext);
 
