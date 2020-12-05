@@ -5,7 +5,7 @@ import Dashboard from "./components/dashboard.jsx";
 import StocksDisplay from "./components/stocksDisplay.jsx";
 import Header from "./components/header.jsx";
 import Balance from "./components/balance.jsx";
-import {GlobalProvider} from "./context/gobalState.jsx"
+import { GlobalProvider } from "./context/gobalState.jsx";
 
 //App COMPONENT:
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Header />
       <div className="container">
         <Dashboard />
-        <Balance/>
+        <Balance />
         <StocksDisplay />
       </div>
     </GlobalProvider>

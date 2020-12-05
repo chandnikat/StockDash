@@ -66,7 +66,7 @@ export const GlobalProvider = ({ children }) => {
       value={{
         stocks: state.stocks,
         deleteStock,
-        addStock
+        addStock,
       }}
     >
       {children}
