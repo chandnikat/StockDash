@@ -1,28 +1,27 @@
-import React, { Component } from "react";
-// export const GlobalContext = createContext(initialState);
+import React, { Component, useContext } from "react";
+import { GlobalContext } from "../context/gobalState.jsx";
 
 //Header COMPONENT:
 function Balance() {
-  // const {stocks} = useContext(GlobalContext)
+  const { stocks } = useContext(GlobalContext);
+
+  const amount = stocks.map((stock) => stock.profitLoss);
+  const total = amount.reduce((acc, item) => (acc += item), 0).toFixed(2);
 
   return (
     <div className="balance-container">
       <div className="total-container">
         <h4 id="balance-header">Total Profit/Loss</h4>
-        <h1 id="balance">$0.00</h1>
+        <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>${total}</h1>
       </div>
       <div className="total-container" id="profit-container">
         <div className="inside-profit-container">
           <h3>Profit</h3>
-          <p className="plus">
-            +$25.00
-          </p>
+          <p className="plus">+$25.00</p>
         </div>
         <div className="inside-profit-container">
           <h3>Loss</h3>
-          <p  className="minus">
-            -$5.00
-          </p>
+          <p className="minus">-$5.00</p>
         </div>
       </div>
     </div>
