@@ -1,17 +1,32 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useContext } from "react";
+import { GlobalContext } from "../context/gobalState.jsx";
+
 
 function Dashboard() {
     const [ticker,setTicker]= useState("");
     const [qty, setQty] = useState(0);
-    const [entryPrice, setEntryPrice] =useState(0)
+    const [entryPrice, setEntryPrice] =useState(0);
+
+    const {addStock} = useContext(GlobalContext)
+
+    const onSubmit = e => {
+      e.preventDefault();
+      const newStock = {
+        id: Math.floor(Math.random()*100000000),
+        ticker,
+        qty,
+        entryPrice
+      }
+      addStock(newStock);
+    }
 
   return (
     <div id="dashboard">
         <h3>Add a Stock</h3>
-      <form id="form">
+      <form id="form" onSubmit={onSubmit}>
         <div className="form-input">
           <label>Ticker:</label>
-          <input type="text" id="ticker" value={ticker} onChange={(e) => setTicker(e.target.value)} placeholder="Ticker Name"></input>
+          <input type="text" id="ticker" value={ticker} onChange={(e) => setTicker(e.target.value)} placeholder="Stock"></input>
         </div>
         <div className="form-input">
           <label>Quantity:</label>

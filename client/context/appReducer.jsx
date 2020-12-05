@@ -3,8 +3,13 @@ export default (state, action) => {
     case "DELETE_STOCK":
       return {
         ...state,
-        stocks: state.stocks.filter(stock => stock.id !== action.payload)
-      }
+        stocks: state.stocks.filter((stock) => stock.id !== action.payload),
+      };
+    case "ADD_STOCK":
+      return {
+        ...state,
+        stocks: [action.payload, ...state.stocks],
+      };
     default:
       return state;
   }
