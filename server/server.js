@@ -13,9 +13,9 @@ if(process.env.NODE_ENV === "production"){
 // serve index.html on the route '/'
 
 
-app.get("/stocks", controllers.getStocks, (request, response) => {
-  response.status(200).json(response.locals.stocksArray);
-});
+// app.get("/stocks", controllers.getStocks, (request, response) => {
+//   response.status(200).json(response.locals.stocksArray);
+// });
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
