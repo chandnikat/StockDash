@@ -31,8 +31,6 @@ function StockCard({ stock }) {
       .catch(err => console.log("API ERROR: " + err))
   });
 
-  console.log("OUTSIDE " + symbol, price);
-  let currentPrice = price
 
   return (
     <>
