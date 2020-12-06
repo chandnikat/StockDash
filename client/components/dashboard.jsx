@@ -5,17 +5,42 @@ function Dashboard() {
   const [ticker, setTicker] = useState("");
   const [qty, setQty] = useState(0);
   const [entryPrice, setEntryPrice] = useState(0);
-
+  const [price, setPrice] = useState(0);
   const { addStock } = useContext(GlobalContext);
+
+  //API request:
+  const token = "Q0PFL2R0GZ167DNF";
+  let symbol = ticker;
+  console.log("TICKER", ticker);
+  const url =
+    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
+    ticker +
+    "&apikey=" +
+    token;
+
+  const getData = (ticker) => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("INSIDE " + ticker, data["Global Quote"]["05. price"]);
+        let lastPrice = data["Global Quote"]["05. price"];
+        setPrice(lastPrice);
+      })
+      .catch((err) => console.log("API ERROR: " + err));
+  };
+  // console.log("PRice", price);
+  getData(ticker);
 
   const onSubmit = (e) => {
     e.preventDefault();
     const newStock = {
       id: Math.floor(Math.random() * 100000000),
       ticker,
+      price,
       qty,
       entryPrice,
     };
+    getData(ticker);
     addStock(newStock);
   };
 
