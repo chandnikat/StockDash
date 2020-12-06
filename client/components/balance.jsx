@@ -23,7 +23,7 @@ function Balance() {
   return (
     <div className="balance-container">
       {/* Total Profit/Loss */}
-      <div className="total-container">
+      <div className={total >= 0 ? "plus-total-container" : "minus-total-container"}>
         <h4 id="balance-header">Total Profit/Loss</h4>
         <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>
           {sign}${Math.abs(total).toFixed(2)}
