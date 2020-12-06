@@ -10,8 +10,8 @@ function Dashboard() {
 
   //API request:
   const token = "Q0PFL2R0GZ167DNF";
-  let symbol = ticker;
-  console.log("TICKER", ticker);
+
+  // console.log("TICKER", ticker);
   const url =
     "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
     ticker +
@@ -29,7 +29,6 @@ function Dashboard() {
       .catch((err) => console.log("API ERROR: " + err));
   };
   // console.log("PRice", price);
-  getData(ticker);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -40,9 +39,9 @@ function Dashboard() {
       qty,
       entryPrice,
     };
-    getData(ticker);
+    getData(e.target.value);
     addStock(newStock);
-
+    console.log("onsubmit")
   };
 
   return (
