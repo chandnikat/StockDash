@@ -35,7 +35,7 @@ function StockCard({ stock }) {
         <table>
         <tbody>
           
-          <tr>
+          <tr id="head-table">
             <th>Ticker</th>
             <th>Stock Price</th>
             <th>Shares</th>
@@ -43,7 +43,7 @@ function StockCard({ stock }) {
             <th>Entry Price</th>
      
           </tr>
-          <tr>
+          <tr id="body-table">
             <th>{stock.ticker.toUpperCase()}</th>
             <th>${Math.abs(stock.price).toFixed(2)}</th>
             <th>{stock.qty}</th>

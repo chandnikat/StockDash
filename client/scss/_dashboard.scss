@@ -99,7 +99,7 @@ label {
   color: #fff;
   font-size: 17px;
   font-weight: bold;
-  padding: 10px 25px;
+  padding: 5px 20px;
   margin: 10px 7px 0px 0px;
     background-color: #512761;   
 }
@@ -157,4 +157,12 @@ tr {
 }
 #stock{
   display: flex;
+}
+
+#head-table {
+  font-size: 12px;
+}
+
+#body-table {
+  font-size: 20px;
 }
