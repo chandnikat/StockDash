@@ -34,6 +34,7 @@ function StockCard({ stock }) {
       <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
         <table>
         <tbody>
+          
           <tr>
             <th>Ticker</th>
             <th>Stock Price</th>
