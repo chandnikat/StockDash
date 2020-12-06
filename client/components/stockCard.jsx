@@ -27,22 +27,23 @@ function StockCard({ stock }) {
         console.log("INSIDE " + symbol, data["Global Quote"]["05. price"]);
         let lastPrice = data["Global Quote"]["05. price"];
         setPrice(lastPrice);
-      });
+      })
+      .catch(err => console.log("API ERROR: " + err))
   });
 
   console.log("OUTSIDE " + symbol, price);
-  let currentPrice =price
+  let currentPrice = price
 
   return (
     <>
       <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
         <h5>Ticker | Price | Shared | Profit/loss | Entry Price</h5>
         <br />
-        {stock.ticker.toUpperCase()} <span>${Math.abs(currentPrice).toFixed(2)}</span> <span>{stock.qty}</span>{" "}
+        {stock.ticker.toUpperCase()} <span>${Math.abs(price).toFixed(2)}</span> <span>{stock.qty}</span>{" "}
         <span className={profitLoss >= 0 ? "plus" : "minus"}>
-          {sign}${Math.abs(profitLoss)}
+          {sign}${Math.abs(profitLoss).toFixed(2)}
         </span>{" "}
-        <span>${stock.entryPrice.toFixed(2)}</span>{" "}
+        <span>${Math.abs(stock.entryPrice).toFixed(2)}</span>{" "}
         <button onClick={() => deleteStock(stock.id)} className="delete-btn">
           Delete
         </button>
