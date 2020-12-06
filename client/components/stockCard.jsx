@@ -5,8 +5,8 @@ function StockCard({ stock }) {
   const [price, setPrice] = useState(0);
   const { deleteStock } = useContext(GlobalContext);
 
-  //~ Will need to update 100 to stock.price once price available.
-  let profitLoss = 100 * stock.qty - stock.entryPrice * stock.qty;
+
+  let profitLoss = price * stock.qty - stock.entryPrice * stock.qty;
 
   const sign = profitLoss < 0 ? "-" : "+";
 
@@ -38,11 +38,11 @@ function StockCard({ stock }) {
       <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
         <h5>Ticker | Price | Shared | Profit/loss | Entry Price</h5>
         <br />
-        {stock.ticker} <span>${Math.abs(currentPrice).toFixed(2)}</span> <span>{stock.qty}</span>{" "}
+        {stock.ticker.toUpperCase()} <span>${Math.abs(currentPrice).toFixed(2)}</span> <span>{stock.qty}</span>{" "}
         <span className={profitLoss >= 0 ? "plus" : "minus"}>
           {sign}${Math.abs(profitLoss)}
         </span>{" "}
-        <span>{stock.entryPrice}</span>{" "}
+        <span>${stock.entryPrice.toFixed(2)}</span>{" "}
         <button onClick={() => deleteStock(stock.id)} className="delete-btn">
           Delete
         </button>
