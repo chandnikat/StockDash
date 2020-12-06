@@ -53,7 +53,7 @@ function Dashboard() {
 
   return (
     <div id="dashboard">
-      <h3>Add a Stock</h3>
+      <h3>Add a Stock:</h3>
       <form id="form" onSubmit={onSubmit}>
         <div className="form-input">
           <label>Ticker:</label><br/>
