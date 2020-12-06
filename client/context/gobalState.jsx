@@ -4,14 +4,14 @@ import AppReducer from "./appReducer.jsx";
 //Initial state:
 const initialState = {
   stocks: [
-    {
-      id: 1,
-      ticker: "AAPl",
-      price: 114,
-      qty: 36,
-      profitLoss: 15,
-      entryPrice: 115,
-    },
+    // {
+    //   id: 1,
+    //   ticker: "AAPl",
+    //   price: 114,
+    //   qty: 36,
+    //   profitLoss: 15,
+    //   entryPrice: 115,
+    // },
    
   ],
 };
