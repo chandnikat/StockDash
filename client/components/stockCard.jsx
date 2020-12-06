@@ -30,8 +30,8 @@ function StockCard({ stock }) {
   // });
 
   return (
-    <>
-      <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
+    <div className="stock">
+      <li className={profitLoss >= 0 ? "plus-border" : "minus-border"} id="stock">
         <table>
         <tbody>
           
@@ -53,18 +53,17 @@ function StockCard({ stock }) {
               </span>
             </th>
             <th>${Math.abs(stock.entryPrice).toFixed(2)}</th>
-            <th>
-              <button
+            
+          </tr>
+          </tbody>
+        </table>
+        <button
                 onClick={() => deleteStock(stock.id)}
                 className="delete-btn">
                 Delete
               </button>
-            </th>
-          </tr>
-          </tbody>
-        </table>
       </li>
-    </>
+    </div>
   );
 }
 

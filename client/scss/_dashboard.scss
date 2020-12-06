@@ -122,14 +122,13 @@ label {
   font-size: 12px;
   font-weight: bold;
   padding: 7px 20px;
-  margin: 10px 7px 0px 0px;
+  margin: 0px 7px 0px 0px;
   background-color: #43548a;   
 }
 
 .list {
   list-style-type: none;
   padding: 10;
-
 
 }
 .list li {
@@ -138,4 +137,24 @@ label {
   color: #333;
   padding: 10px;
   margin: 10px 0;
+  width: 100%;
+}
+
+
+table{
+  display: table;
+  width: 100%;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit
+}
+
+.stock {
+  display: flex;
+}
+#stock{
+  display: flex;
 }
