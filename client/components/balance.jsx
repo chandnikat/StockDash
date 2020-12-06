@@ -31,7 +31,7 @@ function Balance() {
       </div>
 
       {/* Individual Profit/Loss */}
-      <div className="total-container" id="profit-container">
+      <div className="profit-loss-container" id="profit-container">
         <div className="inside-profit-container">
           <h3>Profit</h3>
           <p className="plus">+${Math.abs(profit).toFixed(2)}</p>
