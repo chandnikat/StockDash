@@ -18,30 +18,37 @@ function Dashboard() {
     "&apikey=" +
     token;
 
-  const getData = (ticker) => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("INSIDE " + ticker, data["Global Quote"]["05. price"]);
-        let lastPrice = data["Global Quote"]["05. price"];
-        setPrice(lastPrice);
-      })
-      .catch((err) => console.log("API ERROR: " + err));
-  };
-  // console.log("PRice", price);
+  console.log("PRice", price);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const newStock = {
-      id: Math.floor(Math.random() * 100000000),
-      ticker,
-      price,
-      qty,
-      entryPrice,
-    };
-    getData(e.target.value);
-    addStock(newStock);
-    console.log("onsubmit")
+    function getAPI() {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(
+            "INSIDE " + ticker,
+            data["Global Quote"]["05. price"]
+          );
+          let lastPrice = data["Global Quote"]["05. price"];
+          setPrice(lastPrice);
+          
+        })
+        .then(() => {
+          const newStock = {
+            id: Math.floor(Math.random() * 100000000),
+            ticker,
+            price,
+            qty,
+            entryPrice,
+          };
+          addStock(newStock);
+          console.log("onsubmit", ticker);
+        })
+
+        .catch((err) => console.log("API ERROR: " + err));
+    }
+    getAPI();
   };
 
   return (
