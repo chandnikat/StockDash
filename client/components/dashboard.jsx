@@ -56,7 +56,7 @@ function Dashboard() {
       <h3>Add a Stock</h3>
       <form id="form" onSubmit={onSubmit}>
         <div className="form-input">
-          <label>Ticker:</label>
+          <label>Ticker:</label><br/>
           <input
             type="text"
             id="ticker"
@@ -66,7 +66,7 @@ function Dashboard() {
           ></input>
         </div>
         <div className="form-input">
-          <label>Quantity:</label>
+          <label>Quantity:</label><br/>
           <input
             type="number"
             id="shares"
@@ -76,7 +76,7 @@ function Dashboard() {
           ></input>
         </div>
         <div className="form-input">
-          <label>Entry Price:</label>
+          <label>Entry Price:</label><br/>
           <input
             type="number"
             id="entryPrice"
