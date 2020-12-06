@@ -2,11 +2,10 @@ import React, { Component, useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
 
 function StockCard({ stock }) {
-  const [price, setPrice] = useState(0);
   const { deleteStock } = useContext(GlobalContext);
 
 
-  let profitLoss = price * stock.qty - stock.entryPrice * stock.qty;
+  let profitLoss = stock.price * stock.qty - stock.entryPrice * stock.qty;
 
   const sign = profitLoss < 0 ? "-" : "+";
 

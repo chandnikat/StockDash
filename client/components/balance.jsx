@@ -6,7 +6,7 @@ function Balance() {
   const { stocks } = useContext(GlobalContext);
   console.log(stocks)
   //Total profit/Loss Calc:
-  const amounts = stocks.map((stock) => stock.profitLoss);
+  const amounts = stocks.map((stock) => stock.price * stock.qty - stock.entryPrice * stock.qty);
   const total = amounts.reduce((acc, item) => (acc += item), 0);
   const sign = total < 0 ? "-" : "+";
 
