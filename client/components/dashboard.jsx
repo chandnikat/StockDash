@@ -43,7 +43,7 @@ function Dashboard() {
             entryPrice,
           };
           addStock(newStock);
-          console.log("onsubmit", ticker);
+          console.log("onsubmit", ticker + " " + price);
         })
 
         .catch((err) => console.log("API ERROR: " + err));
