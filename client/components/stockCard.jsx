@@ -4,7 +4,6 @@ import { GlobalContext } from "../context/gobalState.jsx";
 function StockCard({ stock }) {
   const { deleteStock } = useContext(GlobalContext);
 
-
   let profitLoss = stock.price * stock.qty - stock.entryPrice * stock.qty;
 
   const sign = profitLoss < 0 ? "-" : "+";
@@ -30,20 +29,36 @@ function StockCard({ stock }) {
   //     .catch(err => console.log("API ERROR: " + err))
   // });
 
-
   return (
     <>
       <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
-        <h5>Ticker | Price | Shared | Profit/loss | Entry Price</h5>
-        <br />
-        {stock.ticker.toUpperCase()} <span>${Math.abs(stock.price).toFixed(2)}</span> <span>{stock.qty}</span>{" "}
-        <span className={profitLoss >= 0 ? "plus" : "minus"}>
-          {sign}${Math.abs(profitLoss).toFixed(2)}
-        </span>{" "}
-        <span>${Math.abs(stock.entryPrice).toFixed(2)}</span>{" "}
-        <button onClick={() => deleteStock(stock.id)} className="delete-btn">
-          Delete
-        </button>
+        <table>
+          <tr>
+            <th>Ticker</th>
+            <th>Stock Price</th>
+            <th>Shares</th>
+            <th>Profit/Loss</th>
+            <th>Entry Price</th>
+          </tr>
+          <tr>
+            <th>{stock.ticker.toUpperCase()}</th>
+            <th>${Math.abs(stock.price).toFixed(2)}</th>
+            <th>{stock.qty}</th>
+            <th>
+              <span className={profitLoss >= 0 ? "plus" : "minus"}>
+                {sign}${Math.abs(profitLoss).toFixed(2)}
+              </span>
+            </th>
+            <th>${Math.abs(stock.entryPrice).toFixed(2)}</th>
+            <th>
+              <button
+                onClick={() => deleteStock(stock.id)}
+                className="delete-btn">
+                Delete
+              </button>
+            </th>
+          </tr>
+        </table>
       </li>
     </>
   );
