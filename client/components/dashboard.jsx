@@ -30,12 +30,7 @@ function Dashboard() {
   };
   // console.log("PRice", price);
   getData(ticker);
-  const clearState = () => {
-    setTicker("");
-    setQty(0)
-    setEntryPrice(0)
-    setPrice(0)
-  }
+
   const onSubmit = (e) => {
     e.preventDefault();
     const newStock = {
@@ -47,7 +42,7 @@ function Dashboard() {
     };
     getData(ticker);
     addStock(newStock);
-    clearState()
+
   };
 
   return (
