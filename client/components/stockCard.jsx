@@ -33,12 +33,14 @@ function StockCard({ stock }) {
     <>
       <li className={profitLoss >= 0 ? "plus-border" : "minus-border"}>
         <table>
+        <tbody>
           <tr>
             <th>Ticker</th>
             <th>Stock Price</th>
             <th>Shares</th>
             <th>Profit/Loss</th>
             <th>Entry Price</th>
+     
           </tr>
           <tr>
             <th>{stock.ticker.toUpperCase()}</th>
@@ -58,6 +60,7 @@ function StockCard({ stock }) {
               </button>
             </th>
           </tr>
+          </tbody>
         </table>
       </li>
     </>
