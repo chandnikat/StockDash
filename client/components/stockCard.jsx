@@ -3,7 +3,7 @@ import { GlobalContext } from "../context/gobalState.jsx";
 
 function StockCard({ stock }) {
   const { deleteStock } = useContext(GlobalContext);
-
+  // const [price, setPrice] = useState(0);
   let profitLoss = stock.price * stock.qty - stock.entryPrice * stock.qty;
 
   const sign = profitLoss < 0 ? "-" : "+";
@@ -27,7 +27,7 @@ function StockCard({ stock }) {
   //       setPrice(lastPrice);
   //     })
   //     .catch(err => console.log("API ERROR: " + err))
-  // });
+  // }, [stock.ticker]);
 
   return (
     <div className="stock">
