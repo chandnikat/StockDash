@@ -38,7 +38,7 @@ function Dashboard() {
             price,
             qty,
             entryPrice,
-            profitloss: (qty*price)-(qty*entryPrice),
+            profitLoss: (qty*price)-(qty*entryPrice),
           };
           addStock(newStock);
           console.log("onsubmit", ticker + " " + price);
