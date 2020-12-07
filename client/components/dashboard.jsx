@@ -54,14 +54,15 @@ function Dashboard() {
             type="text"
             id="ticker"
             value={ticker}
-            onInput={(e) => setTicker(e.target.value)}
+            onChange={(e) => setTicker(e.target.value)}
             placeholder="Stock"
           ></input>
         </div>
         <div className="form-input">
           <label>Quantity:</label><br/>
           <input
-            type="number"
+            // type="number"
+            className="number"
             id="shares"
             value={qty}
             onChange={(e) => setQty(e.target.value)}
@@ -71,8 +72,9 @@ function Dashboard() {
         <div className="form-input">
           <label>Entry Price:</label><br/>
           <input
-            type="number"
+            // type="number"
             id="entryPrice"
+            className="number"
             value={entryPrice}
             onChange={(e) => setEntryPrice(e.target.value)}
             placeholder="Entry Price"
