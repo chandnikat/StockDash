@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from "react";
+import React, { Component, useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
 
 function Dashboard() {
@@ -9,32 +9,29 @@ function Dashboard() {
   const { addStock } = useContext(GlobalContext);
 
   //API request:
-  const token = "Q0PFL2R0GZ167DNF";
-
-  // console.log("TICKER", ticker);
+  const token = "pk_474db16c98ae4dfcb050cbf314058d17";
+  let symbol = ticker;
+  console.log(ticker)
   const url =
-    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
-    ticker +
-    "&apikey=" +
-    token;
+  `https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${token}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+       
+        let lastPrice = data.latestPrice;
+        setPrice(lastPrice);
+      })
+      .catch(err => console.log("API ERROR: " + err))
+  }, [ticker]);
 
   console.log("PRice", price);
 
+  
+  
   const onSubmit = (e) => {
     e.preventDefault();
-    function getAPI() {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(
-            "INSIDE " + ticker,
-            data["Global Quote"]["05. price"]
-          );
-          let lastPrice = data["Global Quote"]["05. price"];
-          setPrice(lastPrice);
-          
-        })
-        .then(() => {
           const newStock = {
             id: Math.floor(Math.random() * 100000000),
             ticker,
@@ -45,11 +42,6 @@ function Dashboard() {
           };
           addStock(newStock);
           console.log("onsubmit", ticker + " " + price);
-        })
-
-        .catch((err) => console.log("API ERROR: " + err));
-    }
-    getAPI();
   };
 
   return (
@@ -62,7 +54,7 @@ function Dashboard() {
             type="text"
             id="ticker"
             value={ticker}
-            onChange={(e) => setTicker(e.target.value)}
+            onInput={(e) => setTicker(e.target.value)}
             placeholder="Stock"
           ></input>
         </div>
