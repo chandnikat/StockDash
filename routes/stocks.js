@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const {getStocks} = require("../controllers/stocksController.js")
+const {getStocks, addStocks, deleteStocks} = require("../controllers/stocksController.js")
 
 router
     .route("/")
     .get(getStocks)
+    .post(addStocks);
+
+router
+    .route("/:id")
+    .delete(deleteStocks)
+
+
 
 module.exports = router;
