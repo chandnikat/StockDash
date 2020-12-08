@@ -15,4 +15,3 @@ Programs Used
 - React and React Hooks
 
 
-fetch("https://cloud.iexapis.com/stable/stock/intc/quote?token=pk_474db16c98ae4dfcb050cbf314058d17").then(res=>res.json()).then(data => console.log(data.latestPrice))
