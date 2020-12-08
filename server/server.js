@@ -10,22 +10,11 @@ app.use(express.json());
 if(process.env.NODE_ENV === "production"){
   app.use('/dist', express.static(path.join(__dirname, './dist')));
 }
-// serve index.html on the route '/'
 
-
-// app.get("/stocks", controllers.getStocks, (request, response) => {
-//   response.status(200).json(response.locals.stocksArray);
-// });
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
-// app.post(
-//   "/stocks",
-//   controllers.postStocks,
-//   (request, response) => {
-//     response.status(200).send("Ticker posted successfully");
-//   }
-// );
+
 
 app.listen(3000, () => console.log("Localhost Running on port " + port) )
