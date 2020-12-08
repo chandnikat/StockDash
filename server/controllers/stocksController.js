@@ -46,9 +46,7 @@ exports.deleteStocks = async (req, res, next) => {
       return res.status(404).send("No stock found!");
     }
     await stock.remove();
-    return res.status(200).json({
-      data: {},
-    });
+    return res.status(200).send("Stock " + stock.ticker.toUpperCase() + " has been removed!");
   } catch (error) {
     return res.status(400).send("deleteStocks ERROR: " + error);
   }
