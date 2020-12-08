@@ -3,7 +3,7 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const stocks = require("./routes/stocks.js");
-const connectDB = require("./models/stockModel.js");
+const connectDB = require("./db.js");
 
 
 connectDB();
