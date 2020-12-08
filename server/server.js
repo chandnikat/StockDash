@@ -3,7 +3,11 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const stocks = require("/Users/Chandni/Desktop/Codesmith-Program/SoloProject/SoloProject/server/routes/stocks.js")
+const connectDB = require("/Users/Chandni/Desktop/Codesmith-Program/SoloProject/SoloProject/server/models/stockModel.js")
 
+
+
+connectDB()
 const app = express();
 
 app.use(express.json());
