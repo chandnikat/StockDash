@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const port = process.env.PORT || 3000;
-const bodyParser = require("body-parser");
 const stocks = require("./routes/stocks.js");
 const connectDB = require("./db.js");
 
@@ -10,6 +9,7 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+
 
 if (process.env.NODE_ENV === "production") {
   app.use("/dist", express.static(path.join(__dirname, "./dist")));
