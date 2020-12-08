@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
-const stocks = require("../routes/stocks.js")
+const stocks = require("/Users/Chandni/Desktop/Codesmith-Program/SoloProject/SoloProject/server/routes/stocks.js")
 
 const app = express();
 
