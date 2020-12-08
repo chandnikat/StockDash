@@ -7,6 +7,7 @@ exports.getStocks = async (req, res, next) => {
   try {
     const stocks = await Stock.find();
     return res.status(200).json({
+      count: stocks.length,
       data: stocks,
     });
   } catch (error) {
@@ -38,5 +39,17 @@ exports.addStocks = async (req, res, next) => {
 //Delete a stocks
 //Route = DELETE /api/stocks/:id
 exports.deleteStocks = async (req, res, next) => {
-  res.send("DELETE Stock");
+  // res.send("DELETE Stock");
+  try {
+    const stock = await Stock.findById(req.params.id);
+    if (!stock) {
+      return res.status(404).send("No stock found!");
+    }
+    await stock.remove();
+    return res.status(200).json({
+      data: {},
+    });
+  } catch (error) {
+    return res.status(400).send("deleteStocks ERROR: " + error);
+  }
 };
