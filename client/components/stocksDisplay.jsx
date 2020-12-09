@@ -5,17 +5,16 @@ import StockCard from "./stockCard.jsx";
 function StocksDisplay() {
   const { stocks, getStocks } = useContext(GlobalContext);
 
-  useEffect(()=> {
+  useEffect(() => {
     getStocks();
-
-  }, [])
+  }, []);
 
   return (
     <div id="stocksDisplay">
       <h3>Current Stocks:</h3>
       <ul id="list" className="list">
         {stocks.map((stock) => (
-          <StockCard key={stock.id} stock={stock} />
+          <StockCard key={stock._id} stock={stock} />
         ))}
       </ul>
     </div>

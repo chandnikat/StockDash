@@ -3,15 +3,11 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 const stocks = require("./routes/stocks.js");
 const connectDB = require("./db.js");
-// require("babel-core/register");
-// require("babel-polyfill");
-
 
 connectDB();
 const app = express();
 
 app.use(express.json());
-
 
 if (process.env.NODE_ENV === "production") {
   app.use("/dist", express.static(path.join(__dirname, "./dist")));

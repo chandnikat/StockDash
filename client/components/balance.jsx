@@ -4,9 +4,12 @@ import { GlobalContext } from "../context/gobalState.jsx";
 //Header COMPONENT:
 function Balance() {
   const { stocks } = useContext(GlobalContext);
-  console.log(stocks)
+  // console.log(stocks)
+
   //Total profit/Loss Calc:
-  const amounts = stocks.map((stock) => stock.price * stock.qty - stock.entryPrice * stock.qty);
+  const amounts = stocks.map(
+    (stock) => stock.price * stock.qty - stock.entryPrice * stock.qty
+  );
   const total = amounts.reduce((acc, item) => (acc += item), 0);
   const sign = total < 0 ? "-" : "+";
 
@@ -15,6 +18,7 @@ function Balance() {
     .filter((item) => item > 0)
     .reduce((acc, item) => (acc += item), 0)
     .toFixed(2);
+    
   const loss = (
     amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
     -1
@@ -23,7 +27,11 @@ function Balance() {
   return (
     <div className="balance-container">
       {/* Total Profit/Loss */}
-      <div className={total >= 0 ? "plus-total-container" : "minus-total-container"}>
+      <div
+        className={
+          total >= 0 ? "plus-total-container" : "minus-total-container"
+        }
+      >
         <h4 id="balance-header">Total Profit/Loss</h4>
         <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>
           {sign}${Math.abs(total).toFixed(2)}

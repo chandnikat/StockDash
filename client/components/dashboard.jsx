@@ -11,37 +11,33 @@ function Dashboard() {
   //API request:
   const token = "pk_474db16c98ae4dfcb050cbf314058d17";
   let symbol = ticker;
-  console.log(ticker)
-  const url =
-  `https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${token}`;
+  // console.log(ticker)
+  const url = `https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${token}`;
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-       
         let lastPrice = data.latestPrice;
         setPrice(lastPrice);
       })
-      .catch(err => console.log("API ERROR: " + err))
+      .catch((err) => console.log("API ERROR: " + err));
   }, [ticker]);
 
-  console.log("PRice", price);
+  // console.log("Price", price);
 
-  
-  
   const onSubmit = (e) => {
     e.preventDefault();
-          const newStock = {
-            id: Math.floor(Math.random() * 100000000),
-            ticker,
-            price,
-            qty,
-            entryPrice,
-            profitLoss: (qty*price)-(qty*entryPrice),
-          };
-          addStock(newStock);
-          console.log("onsubmit", ticker + " " + price);
+    const newStock = {
+      id: Math.floor(Math.random() * 100000000),
+      ticker,
+      price,
+      qty,
+      entryPrice,
+      profitLoss: qty * price - qty * entryPrice,
+    };
+    addStock(newStock);
+    console.log("onsubmit", ticker + " " + price);
   };
 
   return (
@@ -49,7 +45,8 @@ function Dashboard() {
       <h3>Add a Stock:</h3>
       <form id="form" onSubmit={onSubmit}>
         <div className="form-input">
-          <label>Ticker:</label><br/>
+          <label>Ticker:</label>
+          <br />
           <input
             type="text"
             id="ticker"
@@ -59,7 +56,8 @@ function Dashboard() {
           ></input>
         </div>
         <div className="form-input">
-          <label>Quantity:</label><br/>
+          <label>Quantity:</label>
+          <br />
           <input
             // type="number"
             className="number"
@@ -70,7 +68,8 @@ function Dashboard() {
           ></input>
         </div>
         <div className="form-input">
-          <label>Entry Price:</label><br/>
+          <label>Entry Price:</label>
+          <br />
           <input
             // type="number"
             id="entryPrice"

@@ -3,7 +3,6 @@ export default (state, action) => {
     case "GET_STOCKS":
       return {
         ...state,
-        loading: false,
         stocks: action.payload,
       };
     case "DELETE_STOCK":
@@ -14,7 +13,7 @@ export default (state, action) => {
     case "ADD_STOCK":
       return {
         ...state,
-        stocks: [ ...state.stocks, action.payload],
+        stocks: [...state.stocks, action.payload],
       };
     case "STOCKS_ERROR":
       return {

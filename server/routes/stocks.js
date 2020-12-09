@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getStocks, addStocks, deleteStocks} = require("/Users/Chandni/Desktop/Codesmith-Program/SoloProject/SoloProject/server/controllers/stocksController.js")
+const {getStocks, addStocks, deleteStocks} = require("../controllers/stocksController.js")
 
 router
     .route("/")

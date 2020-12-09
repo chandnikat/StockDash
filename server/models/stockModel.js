@@ -1,27 +1,27 @@
 const mongoose = require("mongoose");
 
 const stockSchema = new mongoose.Schema({
-    ticker: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    price : {
-        type: Number,
-    },
-    qty: {
-        type: Number,
-    },
-    entryPrice : {
-        type: Number,
-    },
-    profitLoss : {
-        type: Number,
-    },
-    createdAt : {
-        type: Date,
-        default: Date.now,
-    }
-})
+  ticker: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  price: {
+    type: Number,
+  },
+  qty: {
+    type: Number,
+  },
+  entryPrice: {
+    type: Number,
+  },
+  profitLoss: {
+    type: Number,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-module.exports = mongoose.model("stock", stockSchema)
+module.exports = mongoose.model("stock", stockSchema);
