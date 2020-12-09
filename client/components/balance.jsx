@@ -32,7 +32,7 @@ function Balance() {
           total >= 0 ? "plus-total-container" : "minus-total-container"
         }
       >
-        <h4 id="balance-header">Total Profit/Loss</h4>
+        <h3 id="balance-header">Total Profit/Loss</h3>
         <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>
           {sign}${numberWithCommas(Math.abs(total).toFixed(2))}
         </h1>
