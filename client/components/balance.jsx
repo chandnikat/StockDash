@@ -1,6 +1,6 @@
 import React, { Component, useContext } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
-
+import {numberWithCommas} from "../utils/formatFuncs.js"
 //Header COMPONENT:
 function Balance() {
   const { stocks } = useContext(GlobalContext);
@@ -18,7 +18,7 @@ function Balance() {
     .filter((item) => item > 0)
     .reduce((acc, item) => (acc += item), 0)
     .toFixed(2);
-    
+
   const loss = (
     amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
     -1
@@ -34,7 +34,7 @@ function Balance() {
       >
         <h4 id="balance-header">Total Profit/Loss</h4>
         <h1 id="balance" className={total >= 0 ? "plus" : "minus"}>
-          {sign}${Math.abs(total).toFixed(2)}
+          {sign}${numberWithCommas(Math.abs(total).toFixed(2))}
         </h1>
       </div>
 
@@ -42,11 +42,11 @@ function Balance() {
       <div className="profit-loss-container" id="profit-container">
         <div className="inside-profit-container">
           <h3>Profit</h3>
-          <p className="plus">+${Math.abs(profit).toFixed(2)}</p>
+          <p className="plus">+${numberWithCommas(Math.abs(profit).toFixed(2))}</p>
         </div>
         <div className="inside-profit-container">
           <h3>Loss</h3>
-          <p className="minus">-${Math.abs(loss).toFixed(2)}</p>
+          <p className="minus">-${numberWithCommas(Math.abs(loss).toFixed(2))}</p>
         </div>
       </div>
     </div>
