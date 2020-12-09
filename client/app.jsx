@@ -7,6 +7,8 @@ import Header from "./components/header.jsx";
 import Balance from "./components/balance.jsx";
 import { GlobalProvider } from "./context/gobalState.jsx";
 
+import 'regenerator-runtime/runtime';
+
 //App COMPONENT:
 function App() {
   return (

@@ -3,6 +3,8 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 const stocks = require("./routes/stocks.js");
 const connectDB = require("./db.js");
+// require("babel-core/register");
+// require("babel-polyfill");
 
 
 connectDB();

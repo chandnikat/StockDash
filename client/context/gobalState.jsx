@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./appReducer.jsx";
+import axios from "axios";
 
 //Initial state:
 const initialState = {
@@ -12,7 +13,6 @@ const initialState = {
     //   profitLoss: 15,
     //   entryPrice: 115,
     // },
-   
   ],
 };
 
@@ -24,17 +24,31 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   //Actions:
-  function deleteStock(id) {
+  async function getStocks() {
+    const response = await axios.get("/api/stocks/");
+    dispatch({
+      type: "GET_STOCKS",
+      payload: response.data.data,
+    });
+  }
+  async function deleteStock(id) {
+    await axios.delete(`/api/stocks/${id}`);
     dispatch({
       type: "DELETE_STOCK",
       payload: id,
     });
   }
 
-  function addStock(stock) {
+  async function addStock(stock) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const response = await axios.post("/api/stocks/", stock, config);
     dispatch({
       type: "ADD_STOCK",
-      payload: stock,
+      payload: response.data.data,
     });
   }
 
@@ -42,6 +56,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         stocks: state.stocks,
+        getStocks,
         deleteStock,
         addStock,
       }}

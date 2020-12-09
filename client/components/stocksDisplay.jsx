@@ -1,9 +1,14 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
 import StockCard from "./stockCard.jsx";
 
 function StocksDisplay() {
-  const { stocks } = useContext(GlobalContext);
+  const { stocks, getStocks } = useContext(GlobalContext);
+
+  useEffect(()=> {
+    getStocks();
+
+  }, [])
 
   return (
     <div id="stocksDisplay">

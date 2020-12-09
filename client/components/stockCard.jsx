@@ -35,7 +35,7 @@ function StockCard({ stock }) {
           </tbody>
         </table>
         <button
-                onClick={() => deleteStock(stock.id)}
+                onClick={() => deleteStock(stock._id)}
                 className="delete-btn">
                 Delete
               </button>
