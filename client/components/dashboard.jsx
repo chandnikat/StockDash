@@ -21,10 +21,17 @@ function Dashboard() {
         let lastPrice = data.latestPrice;
         setPrice(lastPrice);
       })
+
       .catch((err) => console.log("API ERROR: " + err));
   }, [ticker]);
 
   // console.log("Price", price);
+
+  const clear = () => {
+    setTicker("")
+    setQty(0)
+    setEntryPrice(0)
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +45,7 @@ function Dashboard() {
     };
     addStock(newStock);
     console.log("onsubmit", ticker + " " + price);
+    clear()
   };
 
   return (
