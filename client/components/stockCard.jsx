@@ -61,7 +61,7 @@ function StockCard({ stock }) {
               <div className="modal-close">
                 <span>+</span>
               </div>
-              <div className="modal-header">Boeing</div>
+              <div className="modal-header" onClick={manageModal} > Boeing</div>
               <div className="modal-body"></div>
             </div>
           </div>
