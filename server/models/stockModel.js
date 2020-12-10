@@ -18,6 +18,12 @@ const stockSchema = new mongoose.Schema({
   profitLoss: {
     type: Number,
   },
+  profitLoss: {
+    type: String,
+  },
+  companyName: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now,
