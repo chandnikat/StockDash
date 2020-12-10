@@ -5,8 +5,10 @@ import { GlobalContext } from "../context/gobalState.jsx";
 function Modal({ modalState }) {
   return (
     <div className={`modalBackground modalShowing-${modalState}`}>
-      <div className="bg-modal">
-        {/* <p>Data on ticker</p> */}
+      <div className="modal-Bg">
+        <div className="modal-content"> 
+            MODAL
+        </div>
       </div>
     </div>
   );
