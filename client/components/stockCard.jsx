@@ -1,8 +1,17 @@
 import React, { Component, useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
-import {numberWithCommas} from "../utils/formatFuncs.js"
+import { numberWithCommas } from "../utils/formatFuncs.js";
+import Modal from "./modal.jsx";
+
 function StockCard({ stock }) {
+  const [modalState, setModalState] = useState(false);
+
   const { deleteStock } = useContext(GlobalContext);
+
+  const manageModal = () => {
+    setModalState(!modalState);
+    console.log(modalState);
+  };
 
   const sign = stock.profitLoss < 0 ? "-" : "+";
 
@@ -22,21 +31,29 @@ function StockCard({ stock }) {
               <th>Entry Price</th>
             </tr>
             <tr id="body-table">
-              <th>{stock.ticker.toUpperCase()}</th>
+              <th>
+                <span onClick={manageModal}>{stock.ticker.toUpperCase()}</span>
+              </th>
               <th>${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
               <th>{numberWithCommas(stock.qty)}</th>
               <th>
                 <span className={stock.profitLoss >= 0 ? "plus" : "minus"}>
-                  {sign}${numberWithCommas(Math.abs(stock.profitLoss).toFixed(2))}
+                  {sign}$
+                  {numberWithCommas(Math.abs(stock.profitLoss).toFixed(2))}
                 </span>
               </th>
-              <th>${numberWithCommas(Math.abs(stock.entryPrice).toFixed(2)) }</th>
+              <th>
+                ${numberWithCommas(Math.abs(stock.entryPrice).toFixed(2))}
+              </th>
             </tr>
           </tbody>
         </table>
         <button onClick={() => deleteStock(stock._id)} className="delete-btn">
           Delete
         </button>
+      <Modal modalState={modalState}/>
+
+
       </li>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { Component, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/gobalState.jsx";
 import StockCard from "./stockCard.jsx";
+import Modal from "./modal.jsx";
 
 function StocksDisplay() {
   const { stocks, getStocks } = useContext(GlobalContext);
