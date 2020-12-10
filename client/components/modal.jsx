@@ -7,7 +7,8 @@ function Modal({ modalState }) {
     <div className={`modalBackground modalShowing-${modalState}`}>
       <div className="modal-Bg">
         <div className="modal-content"> 
-            MODAL
+            <div className="modal-header"></div>
+            <div className="modal-body"></div>
         </div>
       </div>
     </div>

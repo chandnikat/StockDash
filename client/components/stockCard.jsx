@@ -32,7 +32,7 @@ function StockCard({ stock }) {
             </tr>
             <tr id="body-table">
               <th>
-                <span onClick={manageModal}>{stock.ticker.toUpperCase()}</span>
+                <span onClick={manageModal} className="ticker">{stock.ticker.toUpperCase()}</span>
               </th>
               <th>${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
               <th>{numberWithCommas(stock.qty)}</th>
