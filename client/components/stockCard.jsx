@@ -32,7 +32,9 @@ function StockCard({ stock }) {
             </tr>
             <tr id="body-table">
               <th>
-                <span onClick={manageModal} className="ticker">{stock.ticker.toUpperCase()}</span>
+                <span onClick={manageModal} className="ticker">
+                  {stock.ticker.toUpperCase()}
+                </span>
               </th>
               <th>${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
               <th>{numberWithCommas(stock.qty)}</th>
@@ -51,9 +53,19 @@ function StockCard({ stock }) {
         <button onClick={() => deleteStock(stock._id)} className="delete-btn">
           Delete
         </button>
-      <Modal modalState={modalState}/>
 
-
+        {/* MODAL CONTENT: */}
+        <div className={`modalBackground modalShowing-${modalState}`}>
+          <div className="modal-Bg">
+            <div className="modal-content">
+              <div className="modal-close">
+                <span>+</span>
+              </div>
+              <div className="modal-header">Boeing</div>
+              <div className="modal-body"></div>
+            </div>
+          </div>
+        </div>
       </li>
     </div>
   );
