@@ -59,9 +59,9 @@ function StockCard({ stock }) {
           <div className="modal-Bg">
             <div className="modal-content">
               <div className="modal-close">
-                <span>+</span>
+                <span onClick={manageModal}>+</span>
               </div>
-              <div className="modal-header" onClick={manageModal} > Boeing</div>
+              <div className="modal-header" > Boeing X</div>
               <div className="modal-body"></div>
             </div>
           </div>
