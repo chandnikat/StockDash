@@ -10,7 +10,7 @@ function StockCard({ stock }) {
 
   const manageModal = () => {
     setModalState(!modalState);
-    console.log(modalState);
+    // console.log(modalState);
   };
 
   const sign = stock.profitLoss < 0 ? "-" : "+";
@@ -53,20 +53,19 @@ function StockCard({ stock }) {
         <button onClick={() => deleteStock(stock._id)} className="delete-btn">
           Delete
         </button>
-
-        {/* MODAL CONTENT: */}
-        <div className={`modalBackground modalShowing-${modalState}`}>
-          <div className="modal-Bg">
-            <div className="modal-content">
-              <div className="modal-close">
-                <span onClick={manageModal}>+</span>
-              </div>
-              <div className="modal-header" > Boeing X</div>
-              <div className="modal-body"></div>
+      </li>
+      {/* MODAL CONTENT: */}
+      <div className={`modalBackground modalShowing-${modalState}`}>
+        <div className="modal-Bg">
+          <div className="modal-content">
+            <div className="modal-close">
+              <span onClick={manageModal}>+</span>
             </div>
+            <div className="modal-header"> Boeing X</div>
+            <div className="modal-body"></div>
           </div>
         </div>
-      </li>
+      </div>
     </div>
   );
 }
