@@ -61,7 +61,7 @@ function StockCard({ stock }) {
             <div className="modal-close">
               <span onClick={manageModal}>+</span>
             </div>
-            <div className="modal-header"> Boeing X</div>
+            <div className="modal-header"> {stock.ticker.toUpperCase()}</div>
             <div className="modal-body"></div>
           </div>
         </div>
