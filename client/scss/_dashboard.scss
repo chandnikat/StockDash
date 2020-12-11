@@ -199,7 +199,7 @@ label {
 
 .modal-content{
   width: 400px;
-  height: 300px;
+  height: 325px;
   background-color: white;
   border-radius: 4px;
   border: 4px solid #43548a;
@@ -235,18 +235,20 @@ label {
   font-size: 15px;
 }
 .modal-body{
-  display: flex;
- justify-content: center;
- align-items: center;
-  padding: 20px;
+
+  padding: 5px;
 }
 .modalTable{
-  font-size: 17px;
-  border-collapse:collapse
+  font-size: 19px;
+  border-collapse:collapse;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modalTableLeft{
   text-align: right;
   padding: 5px;
+  
 }
 
 .modalTableRight{
@@ -256,4 +258,45 @@ label {
 
 .modalTableRowOdd{
   background-color: #dbdbdb;
+}
+
+.modalDate{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: 43548a;
+}
+
+.modalNews{
+  text-align: center;
+  padding-bottom: 5px;
+  color: black;
+
+}
+
+.modalNews:hover{
+  color: 43548a;
+}
+
+.news-btn {
+  border: 1px solid;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 20px;
+  margin: 10px 7px 0px 0px;
+
+  background-color: #512761;
+}
+.news-btn:hover {
+  border: 1px solid;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 20px;
+  margin: 10px 7px 0px 0px;
+  background-color: #43548a;
+  cursor: pointer;
 }

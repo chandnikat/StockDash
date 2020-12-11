@@ -15,6 +15,11 @@ function StockCard({ stock }) {
 
   const sign = stock.profitLoss < 0 ? "-" : "+";
 
+  const raiseInvoiceClicked = () => {
+    const url = `https://finance.yahoo.com/quote/${stock.ticker}/`;
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="stock">
       <li
@@ -35,8 +40,10 @@ function StockCard({ stock }) {
                 <span onClick={manageModal} className="ticker">
                   {stock.ticker.toUpperCase()}
                 </span>
-              </th >
-              <th className="mainTableCell">${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
+              </th>
+              <th className="mainTableCell">
+                ${numberWithCommas(Math.abs(stock.price).toFixed(2))}
+              </th>
               <th className="mainTableCell">{numberWithCommas(stock.qty)}</th>
               <th className="mainTableCell">
                 <span className={stock.profitLoss >= 0 ? "plus" : "minus"}>
@@ -61,42 +68,43 @@ function StockCard({ stock }) {
             <div className="modal-close">
               <span onClick={manageModal}>+</span>
             </div>
-            <div className="modal-header"> {stock.ticker.toUpperCase()} <span className="tickerName">({stock.companyName})</span></div>
+            <div className="modal-header">
+              {" "}
+              {stock.ticker.toUpperCase()}{" "}
+              <span className="tickerName">({stock.companyName})</span>
+            </div>
             <div className="modal-body">
+              <p className="modalDate">{stock.date}</p>
               <table className="modalTable">
                 <tbody>
-                <tr>
-                  <th className="modalTableLeft">Today's Date:</th>
-                  <th className="modalTableRight">{stock.date}</th>
-                </tr>
                   <tr className="modalTableRowOdd">
-                  <th className="modalTableLeft">Price Change:</th>
-                  <th className="modalTableRight">${(stock.priceChange).toFixed(2)}</th>
-                </tr>
-                <tr>
-                  <th className="modalTableLeft">% Change:</th>
-                  <th className="modalTableRight">{(stock.changePercent*100).toFixed(2)}%</th>
-                </tr>
-                <tr className="modalTableRowOdd">
-                  <th className="modalTableLeft ">Today's High:</th>
-                  <th className="modalTableRight">${stock.high.toFixed(2)}</th>
-                </tr>
-                <tr>
-                  <th className="modalTableLeft">Today's Low:</th>
-                  <th className="modalTableRight">${stock.low.toFixed(2)}</th>
-                </tr>
-                <tr className="modalTableRowOdd">
-                  <th className="modalTableLeft ">52-Week High:</th>
-                  <th className="modalTableRight">{stock.priceChange}</th>
-                </tr>
-                <tr>
-                  <th className="modalTableLeft">52-Week Low:</th>
-                  <th className="modalTableRight">{stock.priceChange}</th>
-                </tr>
+                    <th className="modalTableLeft">Price Change:</th>
+                    <th className="modalTableRight">
+                      ${stock.priceChange.toFixed(2)}
+                    </th>
+                  </tr>
+                  <tr>
+                    <th className="modalTableLeft">% Change:</th>
+                    <th className="modalTableRight">
+                      {(stock.changePercent * 100).toFixed(2)}%
+                    </th>
+                  </tr>
+                  <tr className="modalTableRowOdd">
+                    <th className="modalTableLeft ">Today's High:</th>
+                    <th className="modalTableRight">
+                      ${stock.high.toFixed(2)}
+                    </th>
+                  </tr>
+                  <tr>
+                    <th className="modalTableLeft">Today's Low:</th>
+                    <th className="modalTableRight">${stock.low.toFixed(2)}</th>
+                  </tr>
                 </tbody>
-                
               </table>
-              </div>
+              <h2 className="modalNews">
+                <button onClick={raiseInvoiceClicked}>News</button>
+              </h2>
+            </div>
           </div>
         </div>
       </div>
