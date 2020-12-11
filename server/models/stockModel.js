@@ -27,6 +27,9 @@ const stockSchema = new mongoose.Schema({
   priceChange: {
     type: Number,
   },
+  date: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
