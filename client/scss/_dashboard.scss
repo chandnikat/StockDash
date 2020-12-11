@@ -242,7 +242,7 @@ label {
 }
 .modalTable{
   font-size: 20px;
-  border: 1px solid black;
+  border-collapse:collapse
 }
 .modalTableLeft{
   text-align: right;
@@ -250,5 +250,9 @@ label {
 
 .modalTableRight{
   text-align: left;
+
 }
 
+.modalTableRowOdd{
+  background-color: #dbdbdb;
+}

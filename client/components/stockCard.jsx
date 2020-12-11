@@ -69,7 +69,7 @@ function StockCard({ stock }) {
                   <th className="modalTableLeft">Today's Date:</th>
                   <th className="modalTableRight">{stock.priceChange}</th>
                 </tr>
-                  <tr>
+                  <tr className="modalTableRowOdd">
                   <th className="modalTableLeft">Price Change:</th>
                   <th className="modalTableRight">${stock.priceChange}</th>
                 </tr>
@@ -77,8 +77,8 @@ function StockCard({ stock }) {
                   <th className="modalTableLeft">% Change:</th>
                   <th className="modalTableRight">{stock.priceChange}</th>
                 </tr>
-                <tr>
-                  <th className="modalTableLeft">52-Week High:</th>
+                <tr className="modalTableRowOdd">
+                  <th className="modalTableLeft ">52-Week High:</th>
                   <th className="modalTableRight">{stock.priceChange}</th>
                 </tr>
                 <tr>
