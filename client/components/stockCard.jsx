@@ -24,6 +24,20 @@ function StockCard({ stock }) {
     window.open(url, "_blank");
   };
 
+  //Setup conditional for High/Low price in case fetch is pending:
+  let highPrice;
+  if (stock.highPrice) {
+    highPrice= `$${numberWithCommas(stock.high).toFixed(2)}`
+  } else {
+    highPrice= "Pending"
+  }
+  let lowPrice;
+  if (stock.low) {
+    lowPrice= `$${numberWithCommas(stock.low).toFixed(2)}`
+  } else {
+    lowPrice= "Pending"
+  }
+
   return (
     <div className="stock">
       <li
@@ -112,13 +126,13 @@ function StockCard({ stock }) {
                   <tr className="modalTableRowOdd">
                     <th className="modalTableLeft ">Today's High:</th>
                     <th className="modalTableRight">
-                      ${numberWithCommas(stock.high)}
+                      {highPrice}
                     </th>
                   </tr>
                   <tr>
                     <th className="modalTableLeft">Today's Low:</th>
                     <th className="modalTableRight">
-                      ${numberWithCommas(stock.low)}
+                      {lowPrice}
                     </th>
                   </tr>
                 </tbody>
