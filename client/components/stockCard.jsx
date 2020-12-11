@@ -98,12 +98,12 @@ function StockCard({ stock }) {
                   <tr className="modalTableRowOdd">
                     <th className="modalTableLeft ">Today's High:</th>
                     <th className="modalTableRight">
-                      ${stock.high.toFixed(2)}
+                      ${numberWithCommas(stock.high.toFixed(2))}
                     </th>
                   </tr>
                   <tr>
                     <th className="modalTableLeft">Today's Low:</th>
-                    <th className="modalTableRight">${stock.low.toFixed(2)}</th>
+                    <th className="modalTableRight">${numberWithCommas(stock.low.toFixed(2))}</th>
                   </tr>
                 </tbody>
               </table>
