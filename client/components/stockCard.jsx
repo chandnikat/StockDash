@@ -5,7 +5,7 @@ import Modal from "./modal.jsx";
 
 function StockCard({ stock }) {
   const [modalState, setModalState] = useState(false);
-  console.log(stock)
+  // console.log(stock)
   const { deleteStock } = useContext(GlobalContext);
 
   const manageModal = () => {
@@ -61,7 +61,7 @@ function StockCard({ stock }) {
             <div className="modal-close">
               <span onClick={manageModal}>+</span>
             </div>
-            <div className="modal-header"> {stock.ticker.toUpperCase()}: <span className="tickerName">{stock.companyName}</span></div>
+            <div className="modal-header"> {stock.ticker.toUpperCase()} <span className="tickerName">({stock.companyName})</span></div>
             <div className="modal-body"></div>
           </div>
         </div>
