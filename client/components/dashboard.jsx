@@ -11,7 +11,7 @@ function Dashboard() {
   const [date, setDate] = useState("")
   const [changePercent, setChangePercent] =useState(0)
   const [high, setHigh] =useState(0)
-
+  const [low, setLow] =useState(0)
   const { addStock } = useContext(GlobalContext);
 
   //API request:
@@ -31,6 +31,7 @@ function Dashboard() {
         setDate(data.latestTime)
         setChangePercent(data.changePercent)
         setHigh(data.high)
+        setLow(data.low)
   
       })
 
@@ -57,7 +58,8 @@ function Dashboard() {
       priceChange,
       date,
       changePercent,
-      high
+      high,
+      low
     };
     addStock(newStock);
     clear()

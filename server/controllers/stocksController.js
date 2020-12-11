@@ -20,7 +20,7 @@ exports.getStocks = async (req, res, next) => {
 exports.addStocks = async (req, res, next) => {
   // res.send("POST Stock");
   try {
-    const { ticker, price, qty, entryPrice, profitLoss, companyName, priceChange, date, changePercent, high} = req.body;
+    const { ticker, price, qty, entryPrice, profitLoss, companyName, priceChange, date, changePercent, high,low} = req.body;
     const stock = await Stock.create({
       ticker,
       price,
@@ -31,7 +31,8 @@ exports.addStocks = async (req, res, next) => {
       priceChange,
       date,
       changePercent,
-      high
+      high,
+      low
     });
     return res.status(200).json({
       data: stock,

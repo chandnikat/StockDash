@@ -83,7 +83,7 @@ function StockCard({ stock }) {
                 </tr>
                 <tr>
                   <th className="modalTableLeft">Today's Low:</th>
-                  <th className="modalTableRight">{stock.priceChange}</th>
+                  <th className="modalTableRight">${stock.low.toFixed(2)}</th>
                 </tr>
                 <tr className="modalTableRowOdd">
                   <th className="modalTableLeft ">52-Week High:</th>
