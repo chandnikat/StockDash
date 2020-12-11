@@ -7,6 +7,8 @@ function Dashboard() {
   const [entryPrice, setEntryPrice] = useState(0);
   const [price, setPrice] = useState(0);
   const [companyName, setCompanyName] = useState("")
+  const [priceChange, setPriceChange] = useState(0)
+
   const { addStock } = useContext(GlobalContext);
 
   //API request:
@@ -22,6 +24,7 @@ function Dashboard() {
         let lastPrice = data.latestPrice;
         setPrice(lastPrice);
         setCompanyName(data.companyName)
+        setPriceChange(data.change)
   
       })
 
@@ -45,6 +48,7 @@ function Dashboard() {
       entryPrice,
       profitLoss: qty * price - qty * entryPrice,
       companyName,
+      priceChange,
     };
     addStock(newStock);
     clear()

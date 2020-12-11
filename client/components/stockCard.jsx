@@ -21,30 +21,30 @@ function StockCard({ stock }) {
         className={stock.profitLoss >= 0 ? "plus-border" : "minus-border"}
         id="stock"
       >
-        <table>
+        <table className="mainTable">
           <tbody>
-            <tr id="head-table">
-              <th>Ticker</th>
-              <th>Stock Price</th>
-              <th>Shares</th>
-              <th>Profit/Loss</th>
-              <th>Entry Price</th>
+            <tr id="head-table" className="mainTableRow">
+              <th className="mainTableCell">Ticker</th>
+              <th className="mainTableCell">Stock Price</th>
+              <th className="mainTableCell">Shares</th>
+              <th className="mainTableCell">Profit/Loss</th>
+              <th className="mainTableCell">Entry Price</th>
             </tr>
-            <tr id="body-table">
-              <th>
+            <tr id="body-table" className="mainTableRow">
+              <th className="mainTableCell">
                 <span onClick={manageModal} className="ticker">
                   {stock.ticker.toUpperCase()}
                 </span>
-              </th>
-              <th>${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
-              <th>{numberWithCommas(stock.qty)}</th>
-              <th>
+              </th >
+              <th className="mainTableCell">${numberWithCommas(Math.abs(stock.price).toFixed(2))}</th>
+              <th className="mainTableCell">{numberWithCommas(stock.qty)}</th>
+              <th className="mainTableCell">
                 <span className={stock.profitLoss >= 0 ? "plus" : "minus"}>
                   {sign}$
                   {numberWithCommas(Math.abs(stock.profitLoss).toFixed(2))}
                 </span>
               </th>
-              <th>
+              <th className="mainTableCell">
                 ${numberWithCommas(Math.abs(stock.entryPrice).toFixed(2))}
               </th>
             </tr>
@@ -62,7 +62,33 @@ function StockCard({ stock }) {
               <span onClick={manageModal}>+</span>
             </div>
             <div className="modal-header"> {stock.ticker.toUpperCase()} <span className="tickerName">({stock.companyName})</span></div>
-            <div className="modal-body"></div>
+            <div className="modal-body">
+              <table className="modalTable">
+                <tbody>
+                <tr>
+                  <th className="modalTableLeft">Today's Date:</th>
+                  <th className="modalTableRight">{stock.priceChange}</th>
+                </tr>
+                  <tr>
+                  <th className="modalTableLeft">Price Change:</th>
+                  <th className="modalTableRight">${stock.priceChange}</th>
+                </tr>
+                <tr>
+                  <th className="modalTableLeft">% Change:</th>
+                  <th className="modalTableRight">{stock.priceChange}</th>
+                </tr>
+                <tr>
+                  <th className="modalTableLeft">52-Week High:</th>
+                  <th className="modalTableRight">{stock.priceChange}</th>
+                </tr>
+                <tr>
+                  <th className="modalTableLeft">52-Week Low:</th>
+                  <th className="modalTableRight">{stock.priceChange}</th>
+                </tr>
+                </tbody>
+                
+              </table>
+              </div>
           </div>
         </div>
       </div>

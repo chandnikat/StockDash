@@ -145,17 +145,17 @@ label {
   width: 100%;
 }
 
-table {
+.mainTable {
   display: table;
   width: 100%;
 }
 
-tr {
+.mainTableRow {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
 }
-th {
+.mainTableCell  {
   width: 20%;
 }
 .stock {
@@ -198,7 +198,7 @@ th {
 }
 
 .modal-content{
-  width: 500px;
+  width: 300px;
   height: 300px;
   background-color: white;
   border-radius: 4px;
@@ -234,3 +234,21 @@ th {
 .tickerName{
   font-size: 20px;
 }
+.modal-body{
+  display: flex;
+ justify-content: center;
+ align-items: center;
+  padding: 20px;
+}
+.modalTable{
+  font-size: 20px;
+  border: 1px solid black;
+}
+.modalTableLeft{
+  text-align: right;
+}
+
+.modalTableRight{
+  text-align: left;
+}
+

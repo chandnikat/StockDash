@@ -13,7 +13,7 @@ export default (state, action) => {
     case "ADD_STOCK":
       return {
         ...state,
-        stocks: [...state.stocks, action.payload],
+        stocks: [ action.payload, ...state.stocks,],
       };
     case "STOCKS_ERROR":
       return {
