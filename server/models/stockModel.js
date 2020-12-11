@@ -22,7 +22,7 @@ const stockSchema = new mongoose.Schema({
     type: String,
   },
   companyName: {
-    type: String
+    type: String,
   },
   priceChange: {
     type: Number,

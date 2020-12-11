@@ -19,8 +19,6 @@ function StockCard({ stock }) {
     // console.log(modalState);
   };
 
-
-
   const newClick = () => {
     const url = `https://finance.yahoo.com/quote/${stock.ticker}/`;
     window.open(url, "_blank");
@@ -86,13 +84,29 @@ function StockCard({ stock }) {
                   <tr className="modalTableRowOdd">
                     <th className="modalTableLeft">Price Change:</th>
                     <th className="modalTableRight">
-                    <span className={priceChangeSign === "+" ? "modalProfit" : "modalLoss"}>{priceChangeSign}${Math.abs(stock.priceChange).toFixed(2)}</span>
+                      <span
+                        className={
+                          priceChangeSign === "+" ? "modalProfit" : "modalLoss"
+                        }
+                      >
+                        {priceChangeSign}$
+                        {Math.abs(stock.priceChange).toFixed(2)}
+                      </span>
                     </th>
                   </tr>
                   <tr>
                     <th className="modalTableLeft">% Change:</th>
                     <th className="modalTableRight">
-                        <span className={percentChangeSign === "+" ? "modalProfit" : "modalLoss"}>{percentChangeSign}{Math.abs(stock.changePercent * 100).toFixed(2)}%</span>
+                      <span
+                        className={
+                          percentChangeSign === "+"
+                            ? "modalProfit"
+                            : "modalLoss"
+                        }
+                      >
+                        {percentChangeSign}
+                        {Math.abs(stock.changePercent * 100).toFixed(2)}%
+                      </span>
                     </th>
                   </tr>
                   <tr className="modalTableRowOdd">
@@ -103,12 +117,16 @@ function StockCard({ stock }) {
                   </tr>
                   <tr>
                     <th className="modalTableLeft">Today's Low:</th>
-                    <th className="modalTableRight">${numberWithCommas(stock.low.toFixed(2))}</th>
+                    <th className="modalTableRight">
+                      ${numberWithCommas(stock.low.toFixed(2))}
+                    </th>
                   </tr>
                 </tbody>
               </table>
               <h2 className="modalNews">
-                <button onClick={newClick} className="news-btn">News</button>
+                <button onClick={newClick} className="news-btn">
+                  News
+                </button>
               </h2>
             </div>
           </div>

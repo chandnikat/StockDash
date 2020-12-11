@@ -6,12 +6,12 @@ function Dashboard() {
   const [qty, setQty] = useState(0);
   const [entryPrice, setEntryPrice] = useState(0);
   const [price, setPrice] = useState(0);
-  const [companyName, setCompanyName] = useState("")
+  const [companyName, setCompanyName] = useState("");
   const [priceChange, setPriceChange] = useState(0);
-  const [date, setDate] = useState("")
-  const [changePercent, setChangePercent] =useState(0)
-  const [high, setHigh] =useState(0)
-  const [low, setLow] =useState(0)
+  const [date, setDate] = useState("");
+  const [changePercent, setChangePercent] = useState(0);
+  const [high, setHigh] = useState(0);
+  const [low, setLow] = useState(0);
   const { addStock } = useContext(GlobalContext);
 
   //API request:
@@ -26,24 +26,22 @@ function Dashboard() {
       .then((data) => {
         let lastPrice = data.latestPrice;
         setPrice(lastPrice);
-        setCompanyName(data.companyName)
-        setPriceChange(data.change)
-        setDate(data.latestTime)
-        setChangePercent(data.changePercent)
-        setHigh(data.high)
-        setLow(data.low)
-  
+        setCompanyName(data.companyName);
+        setPriceChange(data.change);
+        setDate(data.latestTime);
+        setChangePercent(data.changePercent);
+        setHigh(data.high);
+        setLow(data.low);
       })
 
       .catch((err) => console.log("API ERROR: " + err));
   }, [ticker]);
 
-
   const clear = () => {
-    setTicker("")
-    setQty(0)
-    setEntryPrice(0)
-  }
+    setTicker("");
+    setQty(0);
+    setEntryPrice(0);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -59,10 +57,10 @@ function Dashboard() {
       date,
       changePercent,
       high,
-      low
+      low,
     };
     addStock(newStock);
-    clear()
+    clear();
   };
 
   return (
