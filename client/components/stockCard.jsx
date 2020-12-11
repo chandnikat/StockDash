@@ -10,6 +10,10 @@ function StockCard({ stock }) {
 
   const sign = stock.profitLoss < 0 ? "-" : "+";
 
+  //For Modal:
+  const priceChangeSign = stock.priceChange < 0 ? "-" : "+";
+  const percentChangeSign = stock.changePercent < 0 ? "-" : "+";
+
   const manageModal = () => {
     setModalState(!modalState);
     // console.log(modalState);
@@ -82,13 +86,13 @@ function StockCard({ stock }) {
                   <tr className="modalTableRowOdd">
                     <th className="modalTableLeft">Price Change:</th>
                     <th className="modalTableRight">
-                      ${stock.priceChange.toFixed(2)}
+                    <span className={priceChangeSign === "+" ? "modalProfit" : "modalLoss"}>{priceChangeSign}${Math.abs(stock.priceChange).toFixed(2)}</span>
                     </th>
                   </tr>
                   <tr>
                     <th className="modalTableLeft">% Change:</th>
                     <th className="modalTableRight">
-                      {(stock.changePercent * 100).toFixed(2)}%
+                        <span className={percentChangeSign === "+" ? "modalProfit" : "modalLoss"}>{percentChangeSign}{Math.abs(stock.changePercent * 100).toFixed(2)}%</span>
                     </th>
                   </tr>
                   <tr className="modalTableRowOdd">
