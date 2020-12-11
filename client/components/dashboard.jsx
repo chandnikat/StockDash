@@ -9,6 +9,8 @@ function Dashboard() {
   const [companyName, setCompanyName] = useState("")
   const [priceChange, setPriceChange] = useState(0);
   const [date, setDate] = useState("")
+  const [changePercent, setChangePercent] =useState(0)
+  const [high, setHigh] =useState(0)
 
   const { addStock } = useContext(GlobalContext);
 
@@ -27,13 +29,15 @@ function Dashboard() {
         setCompanyName(data.companyName)
         setPriceChange(data.change)
         setDate(data.latestTime)
+        setChangePercent(data.changePercent)
+        setHigh(data.high)
   
       })
 
       .catch((err) => console.log("API ERROR: " + err));
   }, [ticker]);
 
-console.log("DATE", date)
+
   const clear = () => {
     setTicker("")
     setQty(0)
@@ -51,7 +55,9 @@ console.log("DATE", date)
       profitLoss: qty * price - qty * entryPrice,
       companyName,
       priceChange,
-      date
+      date,
+      changePercent,
+      high
     };
     addStock(newStock);
     clear()

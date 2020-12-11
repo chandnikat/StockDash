@@ -30,6 +30,12 @@ const stockSchema = new mongoose.Schema({
   date: {
     type: String,
   },
+  changePercent: {
+    type: Number,
+  },
+  high: {
+    type: Number,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

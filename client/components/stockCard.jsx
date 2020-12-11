@@ -71,15 +71,15 @@ function StockCard({ stock }) {
                 </tr>
                   <tr className="modalTableRowOdd">
                   <th className="modalTableLeft">Price Change:</th>
-                  <th className="modalTableRight">${stock.priceChange}</th>
+                  <th className="modalTableRight">${(stock.priceChange).toFixed(2)}</th>
                 </tr>
                 <tr>
                   <th className="modalTableLeft">% Change:</th>
-                  <th className="modalTableRight">{stock.priceChange}</th>
+                  <th className="modalTableRight">{(stock.changePercent*100).toFixed(2)}%</th>
                 </tr>
                 <tr className="modalTableRowOdd">
                   <th className="modalTableLeft ">Today's High:</th>
-                  <th className="modalTableRight">{stock.priceChange}</th>
+                  <th className="modalTableRight">${stock.high.toFixed(2)}</th>
                 </tr>
                 <tr>
                   <th className="modalTableLeft">Today's Low:</th>
