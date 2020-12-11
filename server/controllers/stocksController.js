@@ -71,3 +71,19 @@ exports.deleteStocks = async (req, res, next) => {
     return res.status(400).send("deleteStocks ERROR: " + error);
   }
 };
+
+//Update a stock
+//Route = PATCH /api/stocks/:ticker
+exports.updateStock =  (req, res, next) => {
+  res.send("PATCH Stock");
+  const filter = {ticker: req.params.ticker}
+  const update = {}
+  try {
+    const stock = await 
+    if (!stock) {
+      return res.status(404).send("No stock found to Update!");
+    }
+  } catch (error) {
+    return res.status(400).send("updateStock ERROR: " + error);
+  }
+};

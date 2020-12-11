@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {getStocks, addStocks, deleteStocks} = require("../controllers/stocksController.js")
+const {getStocks, addStocks, deleteStocks, updateStock} = require("../controllers/stocksController.js");
+
 
 router
     .route("/")
@@ -11,6 +12,8 @@ router
     .route("/:id")
     .delete(deleteStocks)
 
-
+router
+    .route("/:ticker")
+    .patch(updateStock)
 
 module.exports = router;
