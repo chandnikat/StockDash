@@ -8,14 +8,16 @@ function StockCard({ stock }) {
   // console.log(stock)
   const { deleteStock } = useContext(GlobalContext);
 
+  const sign = stock.profitLoss < 0 ? "-" : "+";
+
   const manageModal = () => {
     setModalState(!modalState);
     // console.log(modalState);
   };
 
-  const sign = stock.profitLoss < 0 ? "-" : "+";
 
-  const raiseInvoiceClicked = () => {
+
+  const newClick = () => {
     const url = `https://finance.yahoo.com/quote/${stock.ticker}/`;
     window.open(url, "_blank");
   };
@@ -102,7 +104,7 @@ function StockCard({ stock }) {
                 </tbody>
               </table>
               <h2 className="modalNews">
-                <button onClick={raiseInvoiceClicked}>News</button>
+                <button onClick={newClick} className="news-btn">News</button>
               </h2>
             </div>
           </div>
