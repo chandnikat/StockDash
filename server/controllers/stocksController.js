@@ -78,12 +78,21 @@ exports.deleteStocks = async (req, res) => {
 //Route = PATCH /api/stocks/:ticker
 exports.updateStock = async (req, res) => {
   // res.send("PATCH Stock");
-  const filter = {ticker: req.params.ticker}
-  const update = { 
-    $inc: {qty: req.body.qty},
-    entryPrice: 8,
-  }
   try {
+    let filter;
+    let update;
+  // if(req.body.qty < 0){
+  //    filter = {ticker: req.params.ticker}
+  //    update = { 
+  //     $inc: {qty: req.body.qty},
+  //   }
+ if (req.body.qty > 0){
+     filter = {ticker: req.params.ticker}
+     update = { 
+      $inc: {qty: req.body.qty,  cost: req.body.qty*req.body.entryPrice}
+    }
+  }
+ 
     const stock = await Stock.findOneAndUpdate(filter, update, {new:true})
     // if (!stock) {
     //   return res.status(404).send("No stock found to Update!");
