@@ -13,7 +13,7 @@ export default (state, action) => {
       case "UPDATE_STOCK":
         return {
           ...state,
-          stocks: [...state.stocks],
+          stocks: state.stocks.map((stock) => stock.ticker == action.payload.ticker ? action.payload : stock),
         };
     case "ADD_STOCK":
       return {

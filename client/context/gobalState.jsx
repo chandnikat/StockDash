@@ -38,11 +38,16 @@ export const GlobalProvider = ({ children }) => {
       payload: id,
     });
   }
-  async function updateStock(ticker) {
-    await axios.patch(`/api/stocks/${ticker}`);
+  async function updateStock(ticker, stocks) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const response = await axios.patch(`/api/stocks/${ticker}`, stocks, config);
     dispatch({
       type: "UPDATE_STOCK",
-      payload: ticker,
+      payload: response.data,
     });
   }
   async function addStock(stock) {
