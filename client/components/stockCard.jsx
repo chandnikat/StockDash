@@ -27,13 +27,13 @@ function StockCard({ stock }) {
   //Setup conditional for High/Low price in case fetch is pending:
   let highPrice;
   if (stock.highPrice) {
-    highPrice= `$${numberWithCommas(stock.high).toFixed(2)}`
+    highPrice= `$${numberWithCommas(stock.high.toFixed(2))}`
   } else {
     highPrice= "Pending"
   }
   let lowPrice;
   if (stock.low) {
-    lowPrice= `$${numberWithCommas(stock.low).toFixed(2)}`
+    lowPrice= `$${numberWithCommas(stock.low.toFixed(2))}`
   } else {
     lowPrice= "Pending"
   }
