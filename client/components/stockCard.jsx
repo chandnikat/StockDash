@@ -5,7 +5,7 @@ import Modal from "./modal.jsx";
 
 function StockCard({ stock }) {
   const [modalState, setModalState] = useState(false);
-  // console.log(stock)
+  console.log(stock)
   const { deleteStock } = useContext(GlobalContext);
 
   const sign = stock.profitLoss < 0 ? "-" : "+";

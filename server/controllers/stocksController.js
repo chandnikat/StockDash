@@ -32,6 +32,7 @@ exports.addStocks = async (req, res) => {
       changePercent,
       high,
       low,
+      cost,
     } = req.body;
     const stock = await Stock.create({
       ticker,
@@ -45,6 +46,7 @@ exports.addStocks = async (req, res) => {
       changePercent,
       high,
       low,
+      cost,
     });
     return res.status(200).json({
       data: stock,

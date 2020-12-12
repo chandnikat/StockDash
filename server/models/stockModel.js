@@ -39,6 +39,9 @@ const stockSchema = new mongoose.Schema({
   low: {
     type: Number,
   },
+  cost:{
+    type: Number
+  },
   createdAt: {
     type: Date,
     default: Date.now,

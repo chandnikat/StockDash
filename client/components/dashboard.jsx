@@ -58,6 +58,7 @@ function Dashboard() {
       changePercent,
       high,
       low,
+      cost: qty* entryPrice,
     };
     addStock(newStock);
     clear();
