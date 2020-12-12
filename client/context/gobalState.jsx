@@ -38,7 +38,13 @@ export const GlobalProvider = ({ children }) => {
       payload: id,
     });
   }
-
+  async function updateStock(ticker) {
+    await axios.patch(`/api/stocks/${ticker}`);
+    dispatch({
+      type: "UPDATE_STOCK",
+      payload: ticker,
+    });
+  }
   async function addStock(stock) {
     const config = {
       headers: {
@@ -59,6 +65,7 @@ export const GlobalProvider = ({ children }) => {
         getStocks,
         deleteStock,
         addStock,
+        updateStock
       }}
     >
       {children}

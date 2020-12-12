@@ -12,7 +12,7 @@ function Dashboard() {
   const [changePercent, setChangePercent] = useState(0);
   const [high, setHigh] = useState(0);
   const [low, setLow] = useState(0);
-  const { addStock } = useContext(GlobalContext);
+  const { addStock, updateStock } = useContext(GlobalContext);
 
   //API request:
   const token = "pk_474db16c98ae4dfcb050cbf314058d17";
@@ -35,7 +35,10 @@ function Dashboard() {
       })
 
       .catch((err) => console.log("API ERROR: " + err));
+
+
   }, [ticker]);
+
 
   const clear = () => {
     setTicker("");
@@ -61,6 +64,7 @@ function Dashboard() {
       cost: qty* entryPrice,
     };
     addStock(newStock);
+
     clear();
   };
 

@@ -10,6 +10,11 @@ export default (state, action) => {
         ...state,
         stocks: state.stocks.filter((stock) => stock._id !== action.payload),
       };
+      case "UPDATE_STOCK":
+        return {
+          ...state,
+          stocks: state.stock,
+        };
     case "ADD_STOCK":
       return {
         ...state,
