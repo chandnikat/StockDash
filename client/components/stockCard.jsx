@@ -8,7 +8,9 @@ function StockCard({ stock }) {
   // console.log(stock)
   const { deleteStock } = useContext(GlobalContext);
 
-  const sign = stock.profitLoss < 0 ? "-" : "+";
+  //Calc profit loss:
+  let profitLoss = (stock.qty*stock.price)-(stock.cost);
+  const sign = profitLoss < 0 ? "-" : "+";
 
   //For Modal:
   const priceChangeSign = stock.priceChange < 0 ? "-" : "+";
@@ -64,9 +66,9 @@ function StockCard({ stock }) {
               </th>
               <th className="mainTableCell">{numberWithCommas(stock.qty)}</th>
               <th className="mainTableCell">
-                <span className={stock.profitLoss >= 0 ? "plus" : "minus"}>
+                <span className={profitLoss >= 0 ? "plus" : "minus"}>
                   {sign}$
-                  {numberWithCommas(Math.abs(stock.profitLoss).toFixed(2))}
+                  {numberWithCommas(Math.abs(profitLoss).toFixed(2))}
                 </span>
               </th>
               <th className="mainTableCell">

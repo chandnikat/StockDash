@@ -50,7 +50,6 @@ function Dashboard() {
   const onSubmit = (e) => {
     e.preventDefault();
     const newStock = {
-      id: Math.floor(Math.random() * 100000000),
       ticker,
       price,
       qty,
@@ -64,8 +63,8 @@ function Dashboard() {
       low,
       cost: qty* entryPrice,
     };
-    // updateStock(ticker,newStock)
-    addStock(newStock);
+    updateStock(ticker,newStock)
+    // addStock(newStock);
    
    
     clear();

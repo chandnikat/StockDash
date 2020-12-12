@@ -47,7 +47,7 @@ export const GlobalProvider = ({ children }) => {
     const response = await axios.patch(`/api/stocks/${ticker}`, stocks, config);
     dispatch({
       type: "UPDATE_STOCK",
-      payload: response.data,
+      payload: response.data.data,
     });
   }
   async function addStock(stock) {
