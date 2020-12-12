@@ -70,7 +70,7 @@ function StockCard({ stock }) {
                 </span>
               </th>
               <th className="mainTableCell">
-                ${numberWithCommas(Math.abs(stock.entryPrice).toFixed(2))}
+                ${numberWithCommas(Math.abs(stock.cost/stock.qty).toFixed(2))}
               </th>
             </tr>
           </tbody>
