@@ -3,22 +3,24 @@ export default (state, action) => {
     case "GET_STOCKS":
       return {
         ...state,
-      stocks: action.payload,
+        stocks: action.payload,
       };
     case "DELETE_STOCK":
       return {
         ...state,
         stocks: state.stocks.filter((stock) => stock._id !== action.payload),
       };
-      case "UPDATE_STOCK":
-        return {
-          ...state,
-          stocks: state.stocks.map((stock) => stock.ticker == action.payload.ticker ? action.payload : stock),
-        };
+    case "UPDATE_STOCK":
+      return {
+        ...state,
+        stocks: state.stocks.map((stock) =>
+          stock.ticker == action.payload.ticker ? action.payload : stock
+        ),
+      };
     case "ADD_STOCK":
       return {
         ...state,
-        stocks: [ action.payload, ...state.stocks],
+        stocks: [action.payload, ...state.stocks],
       };
     case "STOCKS_ERROR":
       return {

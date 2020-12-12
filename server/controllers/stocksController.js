@@ -6,7 +6,7 @@ exports.getStocks = async (req, res) => {
   // res.send("GET Stock");
   try {
     let stocks = await Stock.find();
-    stocks= stocks.reverse()
+    stocks = stocks.reverse();
     return res.status(200).json({
       count: stocks.length,
       data: stocks,
@@ -82,23 +82,26 @@ exports.updateStock = async (req, res) => {
   try {
     let filter;
     let update;
-  // if(req.body.qty < 0){
-  //    filter = {ticker: req.params.ticker}
-  //    update = { 
-  //     $inc: {qty: req.body.qty},
-  //   }
- if (req.body.qty > 0){
-     filter = {ticker: req.params.ticker}
-     update = { 
-      $inc: {qty: req.body.qty,  cost: req.body.qty*req.body.entryPrice},
+    // if(req.body.qty < 0){
+    //    filter = {ticker: req.params.ticker}
+    //    update = {
+    //     $inc: {qty: req.body.qty},
+    //   }
+    if (req.body.qty > 0) {
+      filter = { ticker: req.params.ticker };
+      update = {
+        $inc: { qty: req.body.qty, cost: req.body.qty * req.body.entryPrice },
+      };
     }
-  }
- 
-    const stock = await Stock.findOneAndUpdate(filter, update, {new:true, upsert:true})
+
+    const stock = await Stock.findOneAndUpdate(filter, update, {
+      new: true,
+      upsert: true,
+    });
     // if (!stock) {
     //   return res.status(404).send("No stock found to Update!");
     // }
-    return res.status(200).json({ 
+    return res.status(200).json({
       data: stock,
     });
   } catch (error) {

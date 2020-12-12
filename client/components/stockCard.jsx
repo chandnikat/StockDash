@@ -9,7 +9,7 @@ function StockCard({ stock }) {
   const { deleteStock } = useContext(GlobalContext);
 
   //Calc profit loss:
-  let profitLoss = (stock.qty*stock.price)-(stock.cost);
+  let profitLoss = stock.qty * stock.price - stock.cost;
   const sign = profitLoss < 0 ? "-" : "+";
 
   //For Modal:
@@ -21,7 +21,8 @@ function StockCard({ stock }) {
     // console.log(modalState);
   };
 
-  const newClick = () => {
+  //News button function:
+  const newsClick = () => {
     const url = `https://finance.yahoo.com/quote/${stock.ticker}/`;
     window.open(url, "_blank");
   };
@@ -29,21 +30,21 @@ function StockCard({ stock }) {
   //Setup conditional for High/Low price in case fetch is pending:
   let highPrice;
   if (stock.high) {
-    highPrice= `$${numberWithCommas(stock.high.toFixed(2))}`
+    highPrice = `$${numberWithCommas(stock.high.toFixed(2))}`;
   } else {
-    highPrice= "Pending"
+    highPrice = "Pending";
   }
   let lowPrice;
   if (stock.low) {
-    lowPrice= `$${numberWithCommas(stock.low.toFixed(2))}`
+    lowPrice = `$${numberWithCommas(stock.low.toFixed(2))}`;
   } else {
-    lowPrice= "Pending"
+    lowPrice = "Pending";
   }
 
   return (
     <div className="stock">
       <li
-        className={stock.profitLoss >= 0 ? "plus-border" : "minus-border"}
+        className={profitLoss >= 0 ? "plus-border" : "minus-border"}
         id="stock"
       >
         <table className="mainTable">
@@ -67,12 +68,11 @@ function StockCard({ stock }) {
               <th className="mainTableCell">{numberWithCommas(stock.qty)}</th>
               <th className="mainTableCell">
                 <span className={profitLoss >= 0 ? "plus" : "minus"}>
-                  {sign}$
-                  {numberWithCommas(Math.abs(profitLoss).toFixed(2))}
+                  {sign}${numberWithCommas(Math.abs(profitLoss).toFixed(2))}
                 </span>
               </th>
               <th className="mainTableCell">
-                ${numberWithCommas(Math.abs(stock.cost/stock.qty).toFixed(2))}
+                ${numberWithCommas(Math.abs(stock.cost / stock.qty).toFixed(2))}
               </th>
             </tr>
           </tbody>
@@ -81,6 +81,7 @@ function StockCard({ stock }) {
           Delete
         </button>
       </li>
+      
       {/* MODAL CONTENT: */}
       <div className={`modalBackground modalShowing-${modalState}`}>
         <div className="modal-Bg">
@@ -127,20 +128,16 @@ function StockCard({ stock }) {
                   </tr>
                   <tr className="modalTableRowOdd">
                     <th className="modalTableLeft ">Today's High:</th>
-                    <th className="modalTableRight">
-                      {highPrice}
-                    </th>
+                    <th className="modalTableRight">{highPrice}</th>
                   </tr>
                   <tr>
                     <th className="modalTableLeft">Today's Low:</th>
-                    <th className="modalTableRight">
-                      {lowPrice}
-                    </th>
+                    <th className="modalTableRight">{lowPrice}</th>
                   </tr>
                 </tbody>
               </table>
               <h2 className="modalNews">
-                <button onClick={newClick} className="news-btn">
+                <button onClick={newsClick} className="news-btn">
                   News
                 </button>
               </h2>

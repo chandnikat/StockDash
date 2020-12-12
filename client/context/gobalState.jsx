@@ -70,7 +70,7 @@ export const GlobalProvider = ({ children }) => {
         getStocks,
         deleteStock,
         addStock,
-        updateStock
+        updateStock,
       }}
     >
       {children}

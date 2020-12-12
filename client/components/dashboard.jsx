@@ -13,8 +13,10 @@ function Dashboard() {
   const [high, setHigh] = useState(0);
   const [low, setLow] = useState(0);
   const [card, setCard] = useState(true);
+
   const { stocks, addStock, updateStock } = useContext(GlobalContext);
-  // console.log(stocks)
+
+
   //API request:
   const token = "pk_474db16c98ae4dfcb050cbf314058d17";
   let symbol = ticker;
@@ -38,12 +40,14 @@ function Dashboard() {
       .catch((err) => console.log("API ERROR: " + err));
   }, [ticker]);
 
+  //Clear form functiion:
   const clear = () => {
     setTicker("");
     setQty(0);
     setEntryPrice(0);
   };
 
+  //Add stock button function:
   const onSubmit = (e) => {
     e.preventDefault();
     const newStock = {
@@ -60,18 +64,19 @@ function Dashboard() {
       low,
       cost: qty * entryPrice,
     };
-  
-    if(stocks.length === 0){
-      addStock(newStock)
+
+    //"if" conditional to determine if should use addStock() or updateStock()
+    if (stocks.length === 0) {
+      addStock(newStock);
     } else {
-       let count = stocks.filter(stock => {
-         console.log("FILTER STOCK:", stock)
-         return stock.ticker === ticker
-       })
-       console.log("COUNT LENGTH", count.length)
-      count.length === 0 ? addStock(newStock) : updateStock(ticker, newStock)
+      let count = stocks.filter((stock) => {
+        console.log("FILTER STOCK:", stock);
+        return stock.ticker === ticker;
+      });
+      console.log("COUNT LENGTH", count.length);
+      count.length === 0 ? addStock(newStock) : updateStock(ticker, newStock);
     }
-   
+
     clear();
   };
 
