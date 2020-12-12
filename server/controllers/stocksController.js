@@ -2,7 +2,7 @@ const Stock = require("../models/stockModel.js");
 
 //Get all stocks
 //Route = GET /api/stocks
-exports.getStocks = async (req, res, next) => {
+exports.getStocks = async (req, res) => {
   // res.send("GET Stock");
   try {
     const stocks = await Stock.find();
@@ -17,7 +17,7 @@ exports.getStocks = async (req, res, next) => {
 
 //Add a stocks
 //Route = POST /api/stocks
-exports.addStocks = async (req, res, next) => {
+exports.addStocks = async (req, res) => {
   // res.send("POST Stock");
   try {
     const {
@@ -56,7 +56,7 @@ exports.addStocks = async (req, res, next) => {
 
 //Delete a stocks
 //Route = DELETE /api/stocks/:id
-exports.deleteStocks = async (req, res, next) => {
+exports.deleteStocks = async (req, res) => {
   // res.send("DELETE Stock");
   try {
     const stock = await Stock.findById(req.params.id);
@@ -74,15 +74,19 @@ exports.deleteStocks = async (req, res, next) => {
 
 //Update a stock
 //Route = PATCH /api/stocks/:ticker
-exports.updateStock =  (req, res, next) => {
-  res.send("PATCH Stock");
+exports.updateStock = async (req, res) => {
+  // res.send("PATCH Stock");
   const filter = {ticker: req.params.ticker}
-  const update = {}
+  const update = { 
+    $inc: {qty: req.body.qty},
+    entryPrice: 8,
+  }
   try {
-    const stock = await 
-    if (!stock) {
-      return res.status(404).send("No stock found to Update!");
-    }
+    const stock = await Stock.findOneAndUpdate(filter, update, {new:true})
+    // if (!stock) {
+    //   return res.status(404).send("No stock found to Update!");
+    // }
+    return res.status(200).json({});
   } catch (error) {
     return res.status(400).send("updateStock ERROR: " + error);
   }
