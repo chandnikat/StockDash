@@ -63,8 +63,8 @@ function Dashboard() {
       low,
       cost: qty* entryPrice,
     };
-    updateStock(ticker,newStock)
-    // addStock(newStock);
+    // updateStock(ticker,newStock)
+    addStock(newStock);
    
    
     clear();
