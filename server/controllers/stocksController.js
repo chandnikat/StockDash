@@ -5,7 +5,8 @@ const Stock = require("../models/stockModel.js");
 exports.getStocks = async (req, res) => {
   // res.send("GET Stock");
   try {
-    const stocks = await Stock.find();
+    let stocks = await Stock.find();
+    stocks= stocks.reverse()
     return res.status(200).json({
       count: stocks.length,
       data: stocks,

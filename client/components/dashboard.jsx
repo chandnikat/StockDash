@@ -13,8 +13,8 @@ function Dashboard() {
   const [high, setHigh] = useState(0);
   const [low, setLow] = useState(0);
   const [card, setCard] = useState(true);
-  const { addStock, updateStock } = useContext(GlobalContext);
-
+  const { stocks, addStock, updateStock } = useContext(GlobalContext);
+  // console.log(stocks)
   //API request:
   const token = "pk_474db16c98ae4dfcb050cbf314058d17";
   let symbol = ticker;
@@ -61,14 +61,17 @@ function Dashboard() {
       cost: qty * entryPrice,
     };
 
-    if (card) {
-      addStock(newStock);
-      setCard(false);
+    if(stocks.length === 0){
+      addStock(newStock)
     } else {
-      updateStock(ticker, newStock);
-      setCard(true);
+       let count = stocks.filter(stock => {
+         console.log("FILTER STOCK:", stock)
+         return stock.ticker === ticker
+       })
+       console.log("COUNT LENGTH", count.length)
+      count.length === 0 ? addStock(newStock) : updateStock(ticker, newStock)
     }
-
+   
     clear();
   };
 

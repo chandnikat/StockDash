@@ -3,7 +3,7 @@ export default (state, action) => {
     case "GET_STOCKS":
       return {
         ...state,
-        stocks: action.payload,
+      stocks: action.payload,
       };
     case "DELETE_STOCK":
       return {
