@@ -40,6 +40,7 @@ function Dashboard() {
   }, [ticker]);
 
 
+
   const clear = () => {
     setTicker("");
     setQty(0);
@@ -63,8 +64,10 @@ function Dashboard() {
       low,
       cost: qty* entryPrice,
     };
+    updateStock(ticker)
     addStock(newStock);
-
+  
+   
     clear();
   };
 

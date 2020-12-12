@@ -89,15 +89,17 @@ exports.updateStock = async (req, res) => {
  if (req.body.qty > 0){
      filter = {ticker: req.params.ticker}
      update = { 
-      $inc: {qty: req.body.qty,  cost: req.body.qty*req.body.entryPrice}
+      $inc: {qty: req.body.qty,  cost: req.body.qty*req.body.entryPrice},
     }
   }
  
-    const stock = await Stock.findOneAndUpdate(filter, update, {new:true})
+    const stock = await Stock.findOneAndUpdate(filter, update, {new:true, upsert:true})
     // if (!stock) {
     //   return res.status(404).send("No stock found to Update!");
     // }
-    return res.status(200).json({});
+    return res.status(200).json({ 
+      data: stock,
+    });
   } catch (error) {
     return res.status(400).send("updateStock ERROR: " + error);
   }
