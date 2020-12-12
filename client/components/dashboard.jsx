@@ -60,7 +60,7 @@ function Dashboard() {
       low,
       cost: qty * entryPrice,
     };
-
+  
     if(stocks.length === 0){
       addStock(newStock)
     } else {
