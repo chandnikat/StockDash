@@ -12,6 +12,7 @@ function Dashboard() {
   const [changePercent, setChangePercent] = useState(0);
   const [high, setHigh] = useState(0);
   const [low, setLow] = useState(0);
+  const [card, setCard] = useState(true);
   const { addStock, updateStock } = useContext(GlobalContext);
 
   //API request:
@@ -35,11 +36,7 @@ function Dashboard() {
       })
 
       .catch((err) => console.log("API ERROR: " + err));
-
-
   }, [ticker]);
-
-
 
   const clear = () => {
     setTicker("");
@@ -61,12 +58,17 @@ function Dashboard() {
       changePercent,
       high,
       low,
-      cost: qty* entryPrice,
+      cost: qty * entryPrice,
     };
-    // updateStock(ticker,newStock)
-    addStock(newStock);
-   
-   
+
+    if (card) {
+      addStock(newStock);
+      setCard(false);
+    } else {
+      updateStock(ticker, newStock);
+      setCard(true);
+    }
+
     clear();
   };
 
