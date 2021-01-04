@@ -11,7 +11,7 @@ Project Specifications:
 - Shows individual profit and loss
 - Click the stock ticker for more inforamtion including price change, percentage change, day high, and day low as well as a button to go to the ticker's yahoo page.
 
-Programs Used:
+Built With:
 - HTML and CSS
 - Javascript
 - React and React Hooks

@@ -21,7 +21,7 @@ export default (state, action) => {
       return {
         ...state,
         stocks: [action.payload, ...state.stocks],
-      };
+      }
     case "STOCKS_ERROR":
       return {
         ...state,
