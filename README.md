@@ -1,6 +1,6 @@
-# SoloProject
 
-Stock Tracker Dashboard-
+
+# Stock Tracker Dashboard-
 - Keep track of stocks. Add and remove stocks from your dashboard
 
 Project Specifications:
