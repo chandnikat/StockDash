@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const MONGO_URI =
-  "mongodb+srv://chandni:YYHPO0GRTtpREQPS@stocktrackerdashboard.5wesk.mongodb.net/stocktrackerdashboard?retryWrites=true&w=majority";
+const MONGO_URI =`${process.env.DATABASE_URL}`
 
 const connectDB = async () => {
   try {
